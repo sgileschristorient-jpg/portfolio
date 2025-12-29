@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giles Christ-Orient | Network & Cyber Architect</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <div class="custom-cursor" id="cursor"></div>
+    <div id="canvas-container"></div>
+
+    <nav>
+        <div class="nav-link active" onclick="showPage('home')"><i data-lucide="home" size="18"></i> <span>Nexus</span></div>
+        <div class="nav-link" onclick="showPage('services')"><i data-lucide="layers" size="18"></i> <span>Services</span></div>
+        <div class="nav-link" onclick="showPage('projects')"><i data-lucide="briefcase" size="18"></i> <span>Projets</span></div>
+        <div class="nav-link" onclick="showPage('proofs')"><i data-lucide="shield-check" size="18"></i> <span>Preuves</span></div>
+        <div class="nav-link" onclick="showPage('lab')"><i data-lucide="terminal" size="18"></i> <span>CyberLab</span></div>
+    </nav>
+
+    <section id="home" class="page active hero">
+        <div class="container">
+            <div class="profile-wrap">
+                <img src="images/logo.JPG" alt="Giles Christ-Orient" class="profile-img">
+            </div>
+            <p class="text-uppercase fw-bold mb-0" style="color:var(--accent); letter-spacing: 5px;">Etudiant en  Réseaux Informatiques & Télécoms</p>
+            <h1 class="glitch-text">O. Giles Christ-Orient SALOU</h1>
+            <p class="lead text-white mx-auto mb-4" style="max-width: 600px; opacity: 0.9;">
+            Ingénieur de formation (L2 IST Gounghin). Je construis des infrastructures résilientes et des solutions web de haute sécurité.
+            </p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+             <a href="mailto:sgileschristorient@gmail.com" class="btn btn-outline-light rounded-pill px-3 py-2"><i data-lucide="mail" size="16"></i> Contact</a>
+             <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" class="btn btn-danger rounded-pill px-3 py-2"><i data-lucide="youtube" size="16"></i> YouTube</a>
+             <a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" class="btn btn-primary rounded-pill px-3 py-2" style="background-color: #0077b5; border-color: #0077b5;"><i data-lucide="linkedin" size="16"></i> LinkedIn</a>
+             <a href="https://wa.me/57222160" target="_blank" class="btn btn-success rounded-pill px-3 py-2" style="background-color: #25d366; border-color: #25d366;"><i data-lucide="message-circle" size="16"></i> WhatsApp</a>
+             <a href="https://github.com/sgileschristorient-jpg" target="_blank" class="btn btn-outline-light rounded-pill px-3 py-2"><i data-lucide="github" size="16"></i> GitHub</a>
+              <a href="https://tryhackme.com/p/sgileschristorient" target="_blank" class="btn btn-dark rounded-pill px-3 py-2"><i data-lucide="terminal" size="16"></i> TryHackMe</a>
+            </div>   
+        </div>
+    </section>
+
+    <section id="services" class="page">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Pôles d'Excellence</h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent);"></div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="tool" size="40"></i>
+                        <h3 class="service-title">Maintenance & Hardware</h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Déploiement Windows 11 / Linux </li>
+                            <li><i data-lucide="check" size="14"></i> Optimisation PC & Performance</li>
+                            <li><i data-lucide="check" size="14"></i> Nettoyage Viral & Malware</li>
+                            <li><i data-lucide="check" size="14"></i> Diagnostic Logiciel & Matériel</li>
+                            <li><i data-lucide="check" size="14"></i> Sauvegarde / Restauration de données perdues</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="shield-alert" size="40"></i>
+                        <h3 class="service-title">CyberSécurité </h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Hardening Windows/Linux</li>
+                            <li><i data-lucide="check" size="14"></i> Sécurisation Comptes & Réseaux</li>
+                            <li><i data-lucide="check" size="14"></i> Sensibilisation Anti-Phishing</li>
+                            <li><i data-lucide="check" size="14"></i> Analyse de Risques & Audits</li>
+                            <li><i data-lucide="check" size="14"></i> Bonnes Pratiques Numériques</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="code-2" size="40"></i>
+                        <h3 class="service-title">Développement Web</h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Sites Vitrines Responsives</li>
+                            <li><i data-lucide="check" size="14"></i> HTML5 / CSS3 / JavaScript </li>
+                            <li><i data-lucide="check" size="14"></i> Backend PHP & Sécurité SQL</li>
+                            <li><i data-lucide="check" size="14"></i> Framework Bootstrap 5</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="file-text" size="40"></i>
+                        <h3 class="service-title">Bureautique $ autres</h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Structuration Word </li>
+                            <li><i data-lucide="check" size="14"></i> Formation Word & Powerpoint </li>
+                            <li><i data-lucide="check" size="14"></i> Powerpoint Design Impact</li>
+                            <li><i data-lucide="check" size="14"></i> Rédaction de Contenus Tech</li>
+                            <li><i data-lucide="check" size="14"></i> Configuration d'outils collaboratifs</li>
+                            <li><i data-lucide="check" size="14"></i> Creation de Qr Code PRO de tout genre</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="headset" size="40"></i>
+                        <h3 class="service-title">Support & Suivi</h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Support Technique Récurrent</li>
+                            <li><i data-lucide="check" size="14"></i> Assistance à Distance </li>
+                            <li><i data-lucide="check" size="14"></i> Vulgarisation Cybersécurité</li>
+                            <li><i data-lucide="check" size="14"></i> Conseil Utilisation Responsable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card border-info" style="background: rgba(0, 242, 255, 0.05);">
+                        <i data-lucide="brain-circuit" size="40"></i>
+                        <h3 class="service-title">ADN Professionnel</h3>
+                        <ul class="service-item">
+                            <li><i data-lucide="check" size="14"></i> Confidentialité Stricte</li>
+                            <li><i data-lucide="check" size="14"></i> Réactivité & Durabilité</li>
+                            <li><i data-lucide="check" size="14"></i> Pédagogie Orientée Client</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="page">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-white">Portfolio Projets</h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent);"></div>
+                <p class="text-white opacity-75 mt-3">Développement Web, Automatisation Python & Design Digital</p>
+            </div>
+
+            <h3 class="h4 mb-4" style="color: var(--accent);"><i data-lucide="layout" class="me-2"></i>Déploiements Web</h3>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="camera" size="32"></i>
+                        <h4 class="mt-3 text-white">Portfolio Photographe</h4>
+                        <p class="text-white opacity-75 small">Site responsive haute performance axé sur l'esthétique visuelle.</p>
+                        <a href="https://photographe-portfolio.infinityfreeapp.com/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="shopping-bag" size="32"></i>
+                        <h4 class="mt-3 text-white">Boutique en Ligne</h4>
+                        <p class="text-white opacity-75 small">Interface vitrine pour commerce avec catalogue fluide.</p>
+                        <a href="https://sgileschristorient-jpg.github.io/mon-site-vitrine/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <i data-lucide="sparkles" size="32"></i>
+                        <h4 class="mt-3 text-white">Vitrine Mode</h4>
+                        <p class="text-white opacity-75 small">Concept moderne dédié à l'univers du textile et du branding.</p>
+                        <a href="https://sgileschristorient-jpg.github.io/Portfolio-Github-Design/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h4 mb-4" style="color: var(--accent);"><i data-lucide="cpu" class="me-2"></i>Assets & Automatisation</h3>
+            <div class="row g-4">
+                
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4 class="text-white">Scripts Python</h4>
+                            <i data-lucide="terminal" size="24"></i>
+                        </div>
+                        <p class="text-white opacity-75 small">Scripts qui permet de faire des calculs.</p>
+                        <a href="scripts/calcul.py" download class="btn-view text-decoration-none d-inline-block text-center mt-3">
+                            <i data-lucide="download" size="16" class="me-1"></i> TÉLÉCHARGER LE SCRIPT
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4 class="text-white">QR Code Professionnels</h4>
+                            <i data-lucide="qr-code" size="24"></i>
+                        </div>
+                        <p class="text-white opacity-75 small">Design de codes QR personnalisés avec intégration de logos PRO regardez un exemple</p>
+                        <button class="btn-view mt-3" onclick="openCert('qrcodes/whatsapp.png', 'Modèle de QR Code Professionnel')">
+                            <i data-lucide="eye" size="16" class="me-1"></i> VOIR LE MODÈLE
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="proofs" class="page">
+        <div class="container">
+            <h2 class="display-5 fw-bold text-center mb-5">Validations & Diplômes</h2>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <img src="Certificats/major.jpg" class="proof-img-thumb" alt="L1 Réseaux">
+                    <h5>L1 Réseaux - Major</h5>
+                    <p class="small text-muted">IST Gounghin - Promotion 2024</p>
+                    <button class="btn-view" onclick="openCert('Certificats/major.jpg', 'Major de Promotion - L1 Réseaux & Télécoms et de tout L1')">VÉRIFIER LE SCEAU</button>
+                </div>
+                <div class="proof-card">
+                    <img src="Certificats/leader.png" class="proof-img-thumb" alt="Leadership">
+                    <h5>Leadership & Management</h5>
+                    <p class="small text-muted">Certificat de Participation</p>
+                    <button class="btn-view" onclick="openCert('Certificats/leader.png', 'Certification de formation en Leadership & Gestion de Projet')">VÉRIFIER LE SCEAU</button>
+                </div>
+                <div class="proof-card">
+                    <img src="Certificats/cisco.jpg" class="proof-img-thumb" alt="Cyber">
+                    <h5>Formation Cybersécurité: Introduction</h5>
+                    <p class="small text-muted">Les bases</p>
+                    <button class="btn-view" onclick="openCert('Certificats/cisco.jpg', 'Certificat de formation')">VÉRIFIER LE SCEAU</button>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="lab" class="page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                            <span class="ms-3 small text-secondary">analyzer@orient: ~/security_scanner</span>
+                        </div>
+                        <div class="terminal-content">
+                            <p class="text-info mb-1">// SECURITY ANALYZER V1.0</p>
+                            <p class="small opacity-50 mb-3">Entrez une URL pour une analyse heuristique de vulnérabilité.</p>
+                            <div class="d-flex gap-2">
+                                <span class="text-success">$</span>
+                                <input type="text" id="urlInput" class="bg-transparent border-0 text-white w-100 outline-none" placeholder="https://..." style="outline:none">
+                            </div>
+                            <button class="btn btn-sm btn-outline-info mt-3" onclick="runScanner()">EXECUTE_SCAN</button>
+                            <div id="results" class="mt-4 small fira"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <div class="modal fade" id="certModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="mTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <img src="" id="mImg" class="img-fluid rounded-bottom">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* --- 3D DATA SPHERE ENGINE --- */
+        let scene, camera, renderer, particles, sphere;
+        
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Création de la sphère de points (Réseau)
+            const geometry = new THREE.SphereGeometry(25, 32, 32);
+            const material = new THREE.PointsMaterial({ 
+                color: 0x00f2ff, 
+                size: 0.2,
+                transparent: true,
+                opacity: 0.5
+            });
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Wireframe intérieur
+            const wireGeo = new THREE.SphereGeometry(24, 15, 15);
+            const wireMat = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.05 });
+            sphere = new THREE.Mesh(wireGeo, wireMat);
+            scene.add(sphere);
+
+            camera.position.z = 60;
+            animate();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.002;
+            particles.rotation.x += 0.001;
+            sphere.rotation.y -= 0.001;
+            renderer.render(scene, camera);
+        }
+
+        /* --- UI LOGIC --- */
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            
+            document.getElementById(id).classList.add('active');
+            event.currentTarget.classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function openCert(src, title) {
+            document.getElementById('mImg').src = src;
+            document.getElementById('mTitle').innerText = title;
+            new bootstrap.Modal(document.getElementById('certModal')).show();
+        }
+
+        function runScanner() {
+            const res = document.getElementById('results');
+            res.innerHTML = "<span class='text-warning'>[SYSTEM]</span> Initialisation du moteur d'analyse...<br>";
+            setTimeout(() => res.innerHTML += "<span class='text-warning'>[HTTP]</span> Requête sur le domaine cible... 200 OK<br>", 800);
+            setTimeout(() => res.innerHTML += "<span class='text-warning'>[SSL]</span> Vérification de la chaîne de confiance... Valide<br>", 1600);
+            setTimeout(() => res.innerHTML += "<span class='text-success'>[INFO]</span> Scan terminé. Aucune menace critique détectée via ce module.<br>", 2400);
+        }
+
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        window.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        window.onload = () => {
+            init3D();
+            lucide.createIcons();
+            // Animation d'entrée GSAP
+            gsap.from(".glitch-text", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
+        };
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
