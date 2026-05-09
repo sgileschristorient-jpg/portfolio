@@ -9,7 +9,7 @@
     
     let url = urlInput.value.trim();
     if (!url) {
-        results.innerHTML = '<div class="log-entry log-error">[ERROR] Veuillez entrer une URL valide.</div>';
+        results.innerHTML = '<div class="log-entry log-error">[ERREUR] Veuillez entrer une URL valide.</div>';
         return;
     }
 
@@ -19,15 +19,15 @@
         domain = new URL(url).hostname;
         targetDisplay.innerText = domain;
     } catch (e) {
-        results.innerHTML = '<div class="log-entry log-error">[ERROR] Format d URL invalide.</div>';
+        results.innerHTML = '<div class="log-entry log-error">[ERREUR] Format d URL invalide.</div>';
         return;
     }
 
     // Reset UI
-    results.innerHTML = '<div class="log-entry log-info">[SYSTEM] Initialisation du moteur d analyse...</div>';
+    results.innerHTML = '<div class="log-entry log-info">[SYSTÈME] Initialisation du moteur d analyse...</div>';
     riskScore.innerText = '00';
     riskScore.style.color = 'var(--accent)';
-    threatLevel.innerText = 'STATUS: ANALYZING...';
+    threatLevel.innerText = 'STATUT : ANALYSE...';
     threatLevel.className = 'badge rounded-pill bg-primary border border-info p-2 w-100 mb-2';
     radar.classList.add('scanning');
     
@@ -57,7 +57,7 @@
             const ip = data.Answer.find(a => a.type === 1)?.data || 'N/A';
             ipDisplay.innerText = `IP: ${ip}`;
             addLog(`Serveur identifié via Google DNS: ${ip}`, 'success');
-            updateMetric('card-dns', 'SECURE', 'active');
+            updateMetric('card-dns', 'SÉCURISÉ', 'active');
         } else {
             addLog('Avertissement: Aucun enregistrement DNS A trouvé.', 'warn');
             updateMetric('card-dns', 'INCONNU', 'warn');
@@ -84,14 +84,14 @@
     
     const suspiciousTLDs = ['.xyz', '.top', '.icu', '.club', '.gdn', '.monster'];
     const isSuspiciousTLD = suspiciousTLDs.some(tld => domain.endsWith(tld));
-    const hasKeywords = ['login', 'verify', 'account', 'banking', 'secure'].some(kw => domain.toLowerCase().includes(kw));
+    const hasKeywords = ['login', 'verify', 'account', 'banking', 'SÉCURISÉ'].some(kw => domain.toLowerCase().includes(kw));
 
     if (isSuspiciousTLD || (hasKeywords && !domain.includes('google') && !domain.includes('github'))) {
         addLog('ALERTE: Pattern de phishing ou TLD suspect détecté.', 'error');
         updateMetric('card-rep', 'SUSPECT', 'error');
     } else {
         addLog('Réputation: Aucune menace identifiée dans les signatures locales.', 'success');
-        updateMetric('card-rep', 'CLEAN', 'active');
+        updateMetric('card-rep', 'SÉCURISÉ', 'active');
     }
 
     // Final Scoring
@@ -104,20 +104,22 @@
     riskScore.innerText = score;
     if (score < 50) {
         riskScore.style.color = '#ff5f56';
-        threatLevel.innerText = 'STATUS: DANGER';
+        threatLevel.innerText = 'STATUT : DANGER';
         threatLevel.className = 'badge rounded-pill bg-danger p-2 w-100 mb-2';
     } else if (score < 80) {
         riskScore.style.color = '#ffbd2e';
-        threatLevel.innerText = 'STATUS: PRUDENCE';
+        threatLevel.innerText = 'STATUT : PRUDENCE';
         threatLevel.className = 'badge rounded-pill bg-warning text-dark p-2 w-100 mb-2';
     } else {
         riskScore.style.color = '#27c93f';
-        threatLevel.innerText = 'STATUS: SÉCURISÉ';
+        threatLevel.innerText = 'STATUT : SÉCURISÉ';
         threatLevel.className = 'badge rounded-pill bg-success p-2 w-100 mb-2';
     }
 
-    updateMetric('card-headers', score > 80 ? 'STRICT' : 'BASIQUE', score > 80 ? 'active' : 'warn');
+    updateMetric('card-headers', score > 80 ? 'RENFORCÉ' : 'BASIQUE', score > 80 ? 'active' : 'warn');
 
     radar.classList.remove('scanning');
     addLog('Analyse terminée. Rapport de sécurité prêt.', 'info');
 }
+
+
