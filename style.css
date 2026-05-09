@@ -301,3 +301,15 @@
         }
 
 
+
+        .metric-card.warn {
+            border-color: #ffbd2e;
+            background: rgba(255, 189, 46, 0.05);
+        }
+        .metric-card.warn .metric-value { color: #ffbd2e; }
+
+        .metric-card.error {
+            border-color: #ff5f56;
+            background: rgba(255, 95, 86, 0.05);
+        }
+        .metric-card.error .metric-value { color: #ff5f56; }

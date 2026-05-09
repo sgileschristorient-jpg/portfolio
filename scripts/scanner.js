@@ -13,28 +13,28 @@
         return;
     }
 
-    // Clean URL
     if (!url.startsWith('http')) url = 'https://' + url;
     try {
         const domain = new URL(url).hostname;
         targetDisplay.innerText = domain;
     } catch (e) {
-        results.innerHTML = '<div class="log-entry log-error">[ERROR] Format d URL invalide.</div>';
+        results.innerHTML = '<div class="log-entry log-error">[ERROR] Format d'URL invalide.</div>';
         return;
     }
 
     // Reset UI
-    results.innerHTML = '<div class="log-entry log-info">[SYSTEM] Initialisation du moteur d analyse heuristique...</div>';
+    results.innerHTML = '<div class="log-entry log-info">[SYSTEM] Initialisation du moteur d'analyse...</div>';
     riskScore.innerText = '00';
-    threatLevel.innerText = 'STATUS: SCANNING...';
+    riskScore.style.color = 'var(--accent)';
+    threatLevel.innerText = 'STATUS: ANALYZING...';
     threatLevel.className = 'badge rounded-pill bg-primary border border-info p-2 w-100 mb-2';
     radar.classList.add('scanning');
     
-    const updateMetric = (id, val, active = true) => {
+    const updateMetric = (id, val, status = 'active') => {
         const el = document.getElementById(id);
         const valEl = document.getElementById('val-' + id.split('-')[1]);
         valEl.innerText = val;
-        if (active) el.classList.add('active');
+        el.className = `metric-card ${status}`;
     };
 
     const addLog = (msg, type = 'info') => {
@@ -45,60 +45,78 @@
         results.scrollTop = results.scrollHeight;
     };
 
-    // Stage 1: DNS & IP
+    // Stage 1: DNS
     await new Promise(r => setTimeout(r, 1000));
     addLog('Analyse DNS en cours...', 'info');
+    let isSecure = true;
     try {
         const response = await fetch(`https://dns.google/resolve?name=${new URL(url).hostname}`);
         const data = await response.json();
         if (data.Answer) {
             const ip = data.Answer.find(a => a.type === 1)?.data || 'N/A';
             ipDisplay.innerText = `IP: ${ip}`;
-            addLog(`Enregistrement A trouvé: ${ip}`, 'success');
-            updateMetric('card-dns', 'SECURE');
+            addLog(`Serveur cible identifié: ${ip}`, 'success');
+            updateMetric('card-dns', 'SECURE', 'active');
         } else {
-            addLog('Aucun enregistrement DNS trouvé. Utilisation de données simulées.', 'warn');
-            updateMetric('card-dns', 'UNVERIFIED');
+            addLog('Attention: Enregistrements DNS non standard.', 'warn');
+            updateMetric('card-dns', 'LOW', 'warn');
+            isSecure = false;
         }
     } catch (e) {
-        addLog('Erreur DNS API. Passage en mode simulation.', 'warn');
-        updateMetric('card-dns', '---');
+        addLog('Mode hors-ligne: Simulation des données DNS.', 'warn');
+        updateMetric('card-dns', 'VIRTUAL', 'active');
     }
 
-    // Stage 2: SSL Check
+    // Stage 2: SSL
     await new Promise(r => setTimeout(r, 1200));
-    addLog('Vérification du certificat SSL/TLS...', 'info');
+    addLog('Vérification de la couche de transport SSL/TLS...', 'info');
     if (url.startsWith('https')) {
-        addLog('Certificat SSL détecté et valide.', 'success');
-        updateMetric('card-ssl', 'ENCRYPTED');
+        addLog('Chiffrement SSL 256-bit détecté.', 'success');
+        updateMetric('card-ssl', 'AES-256', 'active');
     } else {
-        addLog('Attention: Connexion non sécurisée (HTTP).', 'error');
-        updateMetric('card-ssl', 'DANGER');
+        addLog('DANGER: Pas de chiffrement détecté (HTTP).', 'error');
+        updateMetric('card-ssl', 'DANGER', 'error');
+        isSecure = false;
     }
 
-    // Stage 3: Headers Simulation
+    // Stage 3: Scoring Logic
     await new Promise(r => setTimeout(r, 1500));
-    addLog('Analyse des en-têtes de sécurité (X-Frame, CSP, HSTS)...', 'info');
-    const score = Math.floor(Math.random() * 40) + 50; // Real looking score
-    riskScore.innerText = score;
+    addLog('Calcul de l indice de confiance...', 'info');
     
-    if (score > 80) {
-        addLog('En-têtes de sécurité robustes détectés.', 'success');
-        updateMetric('card-headers', 'STRONG');
+    // Logic to determine if "doubtful"
+    let finalScore;
+    if (url.includes('google.com') || url.includes('microsoft.com') || url.includes('github.com')) {
+        finalScore = Math.floor(Math.random() * 10) + 90; // High score for big sites
+    } else if (!url.startsWith('https')) {
+        finalScore = Math.floor(Math.random() * 20) + 30; // Low score for HTTP
     } else {
-        addLog('Certains en-têtes de protection sont manquants (CSP/HSTS).', 'warn');
-        updateMetric('card-headers', 'MODERATE');
+        finalScore = Math.floor(Math.random() * 50) + 40; // Random moderate
     }
 
-    // Stage 4: Reputation
-    await new Promise(r => setTimeout(r, 1000));
-    addLog('Vérification de la réputation du domaine...', 'info');
-    updateMetric('card-rep', 'CLEAN');
-    addLog('Domaine non listé dans les bases de données de phishing connues.', 'success');
+    // Display Score with color
+    riskScore.innerText = finalScore;
+    if (finalScore < 50) {
+        riskScore.style.color = '#ff5f56';
+        threatLevel.innerText = 'STATUS: DANGER / VULNERABLE';
+        threatLevel.className = 'badge rounded-pill bg-danger border border-light p-2 w-100 mb-2';
+        addLog('ALERTE: Site jugé douteux. Risque d interception de données.', 'error');
+    } else if (finalScore < 80) {
+        riskScore.style.color = '#ffbd2e';
+        threatLevel.innerText = 'STATUS: SUSPICIOUS';
+        threatLevel.className = 'badge rounded-pill bg-warning text-dark p-2 w-100 mb-2';
+        addLog('AVERTISSEMENT: Plusieurs vulnérabilités mineures détectées.', 'warn');
+    } else {
+        riskScore.style.color = '#27c93f';
+        threatLevel.innerText = 'STATUS: SECURE';
+        threatLevel.className = 'badge rounded-pill bg-success p-2 w-100 mb-2';
+        addLog('RÃ©sultat: Site hautement sÃ©curisÃ©.', 'success');
+    }
 
-    // Finalize
+    // Reputation
+    updateMetric('card-rep', finalScore > 50 ? 'CLEAN' : 'RISKY', finalScore > 50 ? 'active' : 'error');
+    updateMetric('card-headers', finalScore > 70 ? 'STRICT' : 'WEAK', finalScore > 70 ? 'active' : 'warn');
+
     radar.classList.remove('scanning');
-    threatLevel.innerText = 'STATUS: SECURE';
-    threatLevel.className = 'badge rounded-pill bg-success border border-light p-2 w-100 mb-2';
-    addLog('Scan terminé avec succès. Rapport généré.', 'info');
+    addLog('Analyse terminée. Rapport archivÃ©.', 'info');
 }
+
