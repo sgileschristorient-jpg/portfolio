@@ -134,10 +134,7 @@
                             <li><i data-lucide="check" size="14"></i> PÃ©dagogie OrientÃ©e Client</li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </div></div></div></div></section>
 
     <section id="projects" class="page">
         <div class="container">
@@ -199,43 +196,35 @@
                             <h4 class="text-white">QR Code Professionnels</h4>
                             <i data-lucide="qr-code" size="24"></i>
                         </div>
-                        <p class="text-white opacity-75 small">Design de codes QR personnalisÃ©s avec intÃ©gration de logos PRO regardez un exemple</p>
-                        <button class="btn-view mt-3" onclick="openCert('qrcodes/whatsapp.png', 'ModÃ¨le de QR Code Professionnel')">
+                        <p class="text-white opacity-75 small">Design de codes QR personnalisés avec intégration de logos PRO regardez un exemple</p>
+                        <button class="btn-view mt-3" onclick="openCert('qrcodes/whatsapp.png', 'Modèle de QR Code Professionnel')">
                             <i data-lucide="eye" size="16" class="me-1"></i> VOIR LE MODÃˆLE
                         </button>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+                </div></div></div></div></section>
 
     <section id="proofs" class="page">
         <div class="container">
-            <h2 class="display-5 fw-bold text-center mb-5">Validations & DiplÃ´mes</h2>
+            <h2 class="display-5 fw-bold text-center mb-5">Validations & Diplômes</h2>
             <div class="proof-grid">
                 <div class="proof-card">
                     <img src="Certificats/major.jpg" class="proof-img-thumb" alt="L1 Réseaux">
                     <h5>L1 Réseaux - Major</h5>
                     <p class="small text-muted">IST Gounghin - Promotion 2024</p>
-                    <button class="btn-view" onclick="openCert('Certificats/major.jpg', 'Major de Promotion - L1 Réseaux & Télécoms et de tout L1')">VÃ‰RIFIER LE SCEAU</button>
+                    <button class="btn-view" onclick="openCert('Certificats/major.jpg', 'Major de Promotion - L1 Réseaux & Télécoms et de tout L1')">VÉRIFIER LE SCEAU</button>
                 </div>
                 <div class="proof-card">
                     <img src="Certificats/leader.png" class="proof-img-thumb" alt="Leadership">
                     <h5>Leadership & Management</h5>
                     <p class="small text-muted">Certificat de Participation</p>
-                    <button class="btn-view" onclick="openCert('Certificats/leader.png', 'Certification de formation en Leadership & Gestion de Projet')">VÃ‰RIFIER LE SCEAU</button>
+                    <button class="btn-view" onclick="openCert('Certificats/leader.png', 'Certification de formation en Leadership & Gestion de Projet')">VÉRIFIER LE SCEAU</button>
                 </div>
                 <div class="proof-card">
                     <img src="Certificats/cisco.jpg" class="proof-img-thumb" alt="Cyber">
                     <h5>Formation Cybersécurité: Introduction</h5>
                     <p class="small text-muted">Les bases</p>
-                    <button class="btn-view" onclick="openCert('Certificats/cisco.jpg', 'Certificat de formation')">VÃ‰RIFIER LE SCEAU</button>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+                    <button class="btn-view" onclick="openCert('Certificats/cisco.jpg', 'Certificat de formation')">VÉRIFIER LE SCEAU</button>
+                </div></div></div></div></section>
 
     <section id="lab" class="page">
         <div class="container">
@@ -296,10 +285,7 @@
                             <div class="small opacity-50" id="ipDisplay">IP: ---.---.---.---</div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </div></div></div></div></section>
 
     
 
@@ -328,7 +314,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // CrÃ©ation de la sphÃ¨re de points (RÃ©seau)
+            // Création de la sphÃ¨re de points (RÃ©seau)
             const geometry = new THREE.SphereGeometry(25, 32, 32);
             const material = new THREE.PointsMaterial({ 
                 color: 0x00f2ff, 
@@ -339,7 +325,7 @@
             particles = new THREE.Points(geometry, material);
             scene.add(particles);
 
-            // Wireframe intÃ©rieur
+            // Wireframe intérieur
             const wireGeo = new THREE.SphereGeometry(24, 15, 15);
             const wireMat = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.05 });
             sphere = new THREE.Mesh(wireGeo, wireMat);
@@ -373,9 +359,7 @@
             new bootstrap.Modal(document.getElementById('certModal')).show();
         }
 
-    <script src="scripts/scanner.js"></script>
-
-        // Custom Cursor
+    // Custom Cursor
         const cursor = document.getElementById('cursor');
         window.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -385,7 +369,7 @@
         window.onload = () => {
             init3D();
             lucide.createIcons();
-            // Animation d'entrÃ©e GSAP
+            // Animation d'entrée GSAP
             gsap.from(".glitch-text", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
         };
 
@@ -399,4 +383,5 @@
     <script src="scripts/scanner.js"></script>
 </body>
 </html>
+
 
