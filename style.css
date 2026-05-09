@@ -255,6 +255,7 @@
             line-height: 1;
             background: linear-gradient(to bottom, #fff, var(--accent));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -313,4 +314,5 @@
             background: rgba(255, 95, 86, 0.05);
         }
         .metric-card.error .metric-value { color: #ff5f56; }
+
 
