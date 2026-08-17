@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Redirection...</title>
+    <script type="text/javascript">
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        var basePath = path.split('/pages/')[0];
+        if (basePath === path) { basePath = '/'; } else { basePath += '/'; }
+
+        var redirectUrl = basePath + '?redirect=' + encodeURIComponent(path + search + hash);
+        window.location.replace(redirectUrl);
+    </script>
+</head>
+<body>
+</body>
+</html>

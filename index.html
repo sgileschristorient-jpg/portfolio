@@ -1,307 +1,164 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
+
 <head>
+    <!-- Base URL dynamique pour fixer les chemins d'images avec les fausses URLs /pages/ -->
+    <script>
+        (function() {
+            var path = window.location.pathname;
+            var base = path.split('/pages/')[0];
+            if (base === path) {
+                base = base.replace('index.html', '');
+            }
+            if (!base.endsWith('/')) base += '/';
+            document.write('<base href="' + base + '">');
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giles Christ-Orient</title>
-    
+    <title>Giles Christ-Orient SALOU — Portfolio</title>
+    <meta name="description" content="Portfolio de Giles Christ-Orient SALOU — Étudiant L2 Major de Promo, expert Cybersécurité, Réseaux, Développeur Web et Mobile.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Giles Christ-Orient SALOU - Portfolio Cybersécurité & Dev">
+    <meta property="og:description" content="Étudiant L2 Major de Promo. Expert Cybersécurité, Réseaux, Développeur Web et Mobile.">
+    <meta property="og:image" content="https://sgileschristorient-jpg.github.io/Portfolio/images/logo.JPG">
+    <meta property="og:url" content="https://sgileschristorient-jpg.github.io/Portfolio/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Local CSS -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Bootstrap JS (needed for modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Three.js & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 </head>
+
 <body>
+    <!-- Preloader -->
+    <div id="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
 
     <div class="custom-cursor" id="cursor"></div>
     <div id="canvas-container"></div>
 
-    <nav>
-        <div class="nav-link active" onclick="showPage('home')"><i data-lucide="home" size="18"></i> <span>Nexus</span></div>
-        <div class="nav-link" onclick="showPage('services')"><i data-lucide="layers" size="18"></i> <span>Services</span></div>
-        <div class="nav-link" onclick="showPage('projects')"><i data-lucide="briefcase" size="18"></i> <span>Projets</span></div>
-        <div class="nav-link" onclick="showPage('proofs')"><i data-lucide="shield-check" size="18"></i> <span>Preuves</span></div>
-        <div class="nav-link" onclick="showPage('lab')"><i data-lucide="terminal" size="18"></i> <span>CyberLab</span></div>
+    <!-- ======= NAVIGATION ======= -->
+    <nav id="main-nav">
+        <div class="nav-link active" onclick="showPage('home', this)">
+            <i data-lucide="home" size="18"></i>
+            <span>Nexus</span>
+        </div>
+        <div class="nav-link" onclick="showPage('about', this)">
+            <i data-lucide="user" size="18"></i>
+            <span>À Propos</span>
+        </div>
+        <div class="nav-link" onclick="showPage('services', this)">
+            <i data-lucide="layers" size="18"></i>
+            <span>Services</span>
+        </div>
+        <div class="nav-link" onclick="showPage('projects', this)">
+            <i data-lucide="briefcase" size="18"></i>
+            <span>Projets</span>
+        </div>
+        <div class="nav-link" onclick="showPage('proofs', this)">
+            <i data-lucide="shield-check" size="18"></i>
+            <span>Preuves</span>
+        </div>
+        <div class="nav-link" onclick="showPage('lab', this)">
+            <i data-lucide="terminal" size="18"></i>
+            <span>CyberLab</span>
+        </div>
     </nav>
 
+    <!-- ======= HOME / HERO ======= -->
     <section id="home" class="page active hero">
         <div class="container">
-            <div class="profile-wrap">
-                <img src="images/logo.JPG" alt="Giles Christ-Orient" class="profile-img">
+            <div class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start">
+
+                <!-- Text -->
+                <div class="col-lg-7 mt-4 mt-lg-0" style="z-index: 10;">
+                    <div class="hero-text-wrap">
+                        <div class="d-flex flex-wrap gap-2 mb-3"><div class="hero-badge d-inline-flex align-items-center px-3 py-2 rounded-pill m-0"><i data-lucide="zap" size="14" class="me-2"></i>Étudiant en Réseaux &amp; Télécoms</div><div class="hero-badge d-inline-flex align-items-center px-3 py-2 rounded-pill m-0" style="border-color: #27c93f; color: #27c93f; background: rgba(39,201,63,0.08);"><i data-lucide="briefcase" size="14" class="me-2"></i>Ouvert aux opportunités</div></div><h1 class="glitch-text mb-3" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">O. Giles Christ-Orient<span class="d-block mt-2 accent-name">Salou</span></h1>
+                        <p class="lead text-white mb-4 mx-auto mx-lg-0" id="hero-subtitle" style="min-height:3.5em;"></p>
+                        <div class="d-flex justify-content-center justify-content-lg-start gap-3 flex-wrap mt-4">
+                            <a href="mailto:sgileschristorient@gmail.com" class="btn-hero btn-contact">
+                                <i data-lucide="mail" size="18"></i> Me Contacter
+                            </a>
+                            <a href="https://wa.me/57222160" target="_blank" rel="noopener" class="btn-hero btn-wa">
+                                <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> WhatsApp
+                            </a>
+                            <a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" class="btn-hero-icon">
+                                <i class="fab fa-github" style="font-size:1.2rem;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" class="btn-hero-icon linkedin">
+                                <i class="fab fa-linkedin-in" style="font-size:1.2rem;"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn-hero-icon youtube">
+                                <i class="fab fa-youtube" style="font-size:1.2rem;"></i>
+                            </a>
+                            <a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" class="btn-hero-icon tryhackme">
+                                <i class="fas fa-terminal" style="font-size:1.1rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Image -->
+                <div class="col-lg-5">
+                    <div class="hero-visual-wrap d-flex justify-content-center">
+                        <div class="profile-wrap hero-main-profile">
+                            <div class="profile-glow"></div>
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring-2"></div>
+                            <div class="particle p1"></div>
+                            <div class="particle p2"></div>
+                            <img src="images/logo.JPG" alt="Giles Christ-Orient SALOU" class="profile-img" loading="eager">
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <p class="text-uppercase fw-bold mb-0" style="color:var(--accent); letter-spacing: 5px;">Etudiant en  Réseaux Informatiques & Télécoms</p>
-            <h1 class="glitch-text">O. Giles Christ-Orient SALOU</h1>
-            <p class="lead text-white mx-auto mb-4" style="max-width: 600px; opacity: 0.9;">
-            Ingénieur de formation (L2 IST Gounghin). Je construis des infrastructures résilientes et des solutions web de haute sécurité.
-            </p>
-            <div class="d-flex justify-content-center gap-2 flex-wrap">
-             <a href="mailto:sgileschristorient@gmail.com" class="btn btn-outline-light rounded-pill px-3 py-2"><i data-lucide="mail" size="16"></i> Contact</a>
-             <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" class="btn btn-danger rounded-pill px-3 py-2"><i data-lucide="youtube" size="16"></i> YouTube</a>
-             <a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" class="btn btn-primary rounded-pill px-3 py-2" style="background-color: #0077b5; border-color: #0077b5;"><i data-lucide="linkedin" size="16"></i> LinkedIn</a>
-             <a href="https://wa.me/57222160" target="_blank" class="btn btn-success rounded-pill px-3 py-2" style="background-color: #25d366; border-color: #25d366;"><i data-lucide="message-circle" size="16"></i> WhatsApp</a>
-             <a href="https://github.com/sgileschristorient-jpg" target="_blank" class="btn btn-outline-light rounded-pill px-3 py-2"><i data-lucide="github" size="16"></i> GitHub</a>
-              <a href="https://tryhackme.com/p/sgileschristorient" target="_blank" class="btn btn-dark rounded-pill px-3 py-2"><i data-lucide="terminal" size="16"></i> TryHackMe</a>
-            </div>   
         </div>
     </section>
 
-    <section id="services" class="page">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold">Pôles d'Excellence</h2>
-                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent);"></div>
-            </div>
+    <!-- ======= ABOUT ======= -->
+    <div id="about-container"></div>
 
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="tool" size="40"></i>
-                        <h3 class="service-title">Maintenance & Hardware</h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Déploiement Windows 11 / Linux </li>
-                            <li><i data-lucide="check" size="14"></i> Optimisation PC & Performance</li>
-                            <li><i data-lucide="check" size="14"></i> Nettoyage Viral & Malware</li>
-                            <li><i data-lucide="check" size="14"></i> Diagnostic Logiciel & Matériel</li>
-                            <li><i data-lucide="check" size="14"></i> Sauvegarde / Restauration de données perdues</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- ======= SERVICES ======= -->
+    <div id="services-container"></div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="shield-alert" size="40"></i>
-                        <h3 class="service-title">Cybersécurité </h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Hardening Windows/Linux</li>
-                            <li><i data-lucide="check" size="14"></i> Sécurisation Comptes & Réseaux</li>
-                            <li><i data-lucide="check" size="14"></i> Sensibilisation Anti-Phishing</li>
-                            <li><i data-lucide="check" size="14"></i> Analyse de Risques & Audits</li>
-                            <li><i data-lucide="check" size="14"></i> Bonnes Pratiques Numériques</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- ======= PROJECTS ======= -->
+    <div id="projects-container"></div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="code-2" size="40"></i>
-                        <h3 class="service-title">Développement Web</h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Sites Vitrines Responsives</li>
-                            <li><i data-lucide="check" size="14"></i> HTML5 / CSS3 / JavaScript </li>
-                            <li><i data-lucide="check" size="14"></i> Backend PHP & sécurité SQL</li>
-                            <li><i data-lucide="check" size="14"></i> Framework Bootstrap 5</li>
-                        </ul>
-                    </div>
-                </div>
+    <!-- ======= PREUVES ======= -->
+    <div id="proofs-container"></div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="file-text" size="40"></i>
-                        <h3 class="service-title">Bureautique & autres</h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Structuration Word </li>
-                            <li><i data-lucide="check" size="14"></i> Formation Word & Powerpoint </li>
-                            <li><i data-lucide="check" size="14"></i> Powerpoint Design Impact</li>
-                            <li><i data-lucide="check" size="14"></i> Rédaction de Contenus Tech</li>
-                            <li><i data-lucide="check" size="14"></i> Configuration d'outils collaboratifs</li>
-                            <li><i data-lucide="check" size="14"></i> Création de Qr Code PRO de tout genre</li>
-                            
-                        </ul>
-                    </div>
-                </div>
+    <!-- ======= CYBERLAB ======= -->
+    <div id="lab-container"></div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="headset" size="40"></i>
-                        <h3 class="service-title">Support & Suivi</h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Support Technique Récurrent</li>
-                            <li><i data-lucide="check" size="14"></i> Assistance à Distance </li>
-                            <li><i data-lucide="check" size="14"></i> Vulgarisation Cybersécurité</li>
-                            <li><i data-lucide="check" size="14"></i> Conseil Utilisation Responsable</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card border-info" style="background: rgba(0, 242, 255, 0.05);">
-                        <i data-lucide="brain-circuit" size="40"></i>
-                        <h3 class="service-title">ADN Professionnel</h3>
-                        <ul class="service-item">
-                            <li><i data-lucide="check" size="14"></i> Confidentialité Stricte</li>
-                            <li><i data-lucide="check" size="14"></i> Réactivité & Durabilité</li>
-                            <li><i data-lucide="check" size="14"></i> Pédagogie Orientée Client</li>
-                        </ul>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-    </div></section>
-
-    <section id="projects" class="page">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold text-white">Portfolio Projets</h2>
-                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent);"></div>
-                <p class="text-white opacity-75 mt-3">Développement Web, Automatisation Python & Design Digital</p>
-            </div>
-
-            <h3 class="h4 mb-4" style="color: var(--accent);"><i data-lucide="layout" class="me-2"></i>Déploiements Web</h3>
-            <div class="row g-4 mb-5">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="camera" size="32"></i>
-                        <h4 class="mt-3 text-white">Portfolio Photographe</h4>
-                        <p class="text-white opacity-75 small">Site responsive haute performance axé sur l'esthétique visuelle.</p>
-                        <a href="https://photographe-portfolio.infinityfreeapp.com/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="shopping-bag" size="32"></i>
-                        <h4 class="mt-3 text-white">Boutique en Ligne</h4>
-                        <p class="text-white opacity-75 small">Interface vitrine pour commerce avec catalogue fluide.</p>
-                        <a href="https://sgileschristorient-jpg.github.io/mon-site-vitrine/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <i data-lucide="sparkles" size="32"></i>
-                        <h4 class="mt-3 text-white">Vitrine Mode</h4>
-                        <p class="text-white opacity-75 small">Concept moderne dédié à l'univers du textile et du branding.</p>
-                        <a href="https://sgileschristorient-jpg.github.io/Portfolio-Github-Design/" target="_blank" class="btn-view text-decoration-none d-inline-block text-center mt-2">VISITER LE SITE</a>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="h4 mb-4" style="color: var(--accent);"><i data-lucide="cpu" class="me-2"></i>Assets & Automatisation</h3>
-            <div class="row g-4">
-                
-                <div class="col-md-6">
-                    <div class="service-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h4 class="text-white">Scripts Python</h4>
-                            <i data-lucide="terminal" size="24"></i>
-                        </div>
-                        <p class="text-white opacity-75 small">Scripts qui permet de faire des calculs.</p>
-                        <a href="scripts/calcul.py" download class="btn-view text-decoration-none d-inline-block text-center mt-3">
-                            <i data-lucide="download" size="16" class="me-1"></i> TÉLÉCHARGER LE SCRIPT
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="service-card">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h4 class="text-white">QR Code Professionnels</h4>
-                            <i data-lucide="qr-code" size="24"></i>
-                        </div>
-                        <p class="text-white opacity-75 small">Design de codes QR personnalisés avec intégration de logos PRO regardez un exemple</p>
-                        <button class="btn-view mt-3" onclick="openCert('qrcodes/whatsapp.png', 'Modèle de QR Code Professionnel')">
-                            <i data-lucide="eye" size="16" class="me-1"></i> VOIR LE MODÈLE
-                        </button>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-    </div></section>
-
-    <section id="proofs" class="page">
-        <div class="container">
-            <h2 class="display-5 fw-bold text-center mb-5">Validations & Diplômes</h2>
-            <div class="proof-grid">
-                <div class="proof-card">
-                    <img src="Certificats/major.jpg" class="proof-img-thumb" alt="L1 Réseaux">
-                    <h5>L1 Réseaux - Major</h5>
-                    <p class="small text-muted">IST Gounghin - Promotion 2024</p>
-                    <button class="btn-view" onclick="openCert('Certificats/major.jpg', 'Major de Promotion - L1 Réseaux & Télécoms et de tout L1')">VÉRIFIER LE SCEAU</button>
-                </div>
-                <div class="proof-card">
-                    <img src="Certificats/leader.png" class="proof-img-thumb" alt="Leadership">
-                    <h5>Leadership & Management</h5>
-                    <p class="small text-muted">Certificat de Participation</p>
-                    <button class="btn-view" onclick="openCert('Certificats/leader.png', 'Certification de formation en Leadership & Gestion de Projet')">VÉRIFIER LE SCEAU</button>
-                </div>
-                <div class="proof-card">
-                    <img src="Certificats/cisco.jpg" class="proof-img-thumb" alt="Cyber">
-                    <h5>Formation Cybersécurité: Introduction</h5>
-                    <p class="small text-muted">Les bases</p>
-                    <button class="btn-view" onclick="openCert('Certificats/cisco.jpg', 'Certificat de formation')">VÉRIFIER LE SCEAU</button>
-                
-                </div></div></div></section>
-
-    <section id="lab" class="page">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-4 fw-bold">Cyber Security Lab</h2>
-                <div class="mx-auto" style="width: 80px; height: 4px; background: var(--accent);"></div>
-                <p class="text-white opacity-75 mt-3">Analyse heuristique de vulnérabilité en temps réel</p>
-            </div>
-
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-                    <span class="ms-3 small text-secondary">security_scanner --target <span id="targetDisplay">none</span></span>
-                </div>
-                
-                <div class="p-3">
-                    <div class="input-group mb-4" style="max-width: 600px;">
-                        <span class="input-group-text bg-transparent border-secondary text-success">$</span>
-                        <input type="text" id="urlInput" class="form-control bg-transparent border-secondary text-white" placeholder="Entrez une URL (ex: google.com)">
-                        <button class="btn btn-outline-info" onclick="runScanner()" id="scanBtn">Lancer l'Analyse</button>
-                    </div>
-
-                    <div class="scanner-container">
-                        <div class="main-dashboard">
-                            <div class="dashboard-grid">
-                                <div class="metric-card" id="card-ssl">
-                                    <span class="metric-label">Chiffrement SSL</span>
-                                    <span class="metric-value" id="val-ssl">---</span>
-                                </div>
-                                <div class="metric-card" id="card-headers">
-                                    <span class="metric-label">Entêtes HTTP</span>
-                                    <span class="metric-value" id="val-headers">---</span>
-                                </div>
-                                <div class="metric-card" id="card-dns">
-                                    <span class="metric-label">Sécurité DNS</span>
-                                    <span class="metric-value" id="val-dns">---</span>
-                                </div>
-                                <div class="metric-card" id="card-rep">
-                                    <span class="metric-label">Réputation</span>
-                                    <span class="metric-value" id="val-rep">---</span>
-                                </div>
-                            </div>
-                            
-                            <div class="scan-logs fira" id="results">
-                                <div class="log-entry log-info">[SYSTÈME] Prêt pour l'analyse. Veuillez entrer une URL cible.</div>
-                            </div>
-                        </div>
-
-                        <div class="sidebar-stats text-center">
-                            <div class="radar-box mb-3" id="radar">
-                                <div class="radar-sweep"></div>
-                                <div class="risk-score-display">
-                                    <div class="metric-label">SCORE SÉCURITÉ</div>
-                                    <div class="score-big" id="riskScore">00</div>
-                                </div>
-                            </div>
-                            <div class="badge rounded-pill bg-dark border border-secondary p-2 w-100 mb-2" id="threatLevel">STATUT : EN ATTENTE</div>
-                            <div class="small opacity-50" id="ipDisplay">IP: ---.---.---.---</div>
-                        </div>
-                    </div>
-                
-                </div>
-            </div>
-        </div>
-    </div></section>
-
-    
-
+    <!-- ======= MODAL ======= -->
     <div class="modal fade" id="certModal" tabindex="-1">
         <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="modal-content">
@@ -310,27 +167,31 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body text-center p-0">
-                    <img src="" id="mImg" class="img-fluid rounded-bottom">
+                    <img src="" id="mImg" class="img-fluid rounded-bottom" alt="Certificat">
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- ======= SCRIPTS ======= -->
     <script>
         /* --- 3D DATA SPHERE ENGINE --- */
         let scene, camera, renderer, particles, sphere;
-        
+
         function init3D() {
+            if (window.innerWidth < 768) return; // skip on mobile for perf
+            if (typeof THREE === 'undefined') return;
+
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Création de la sphère de points (Réseau)
             const geometry = new THREE.SphereGeometry(25, 32, 32);
-            const material = new THREE.PointsMaterial({ 
-                color: 0x00f2ff, 
+            const material = new THREE.PointsMaterial({
+                color: 0x00f2ff,
                 size: 0.2,
                 transparent: true,
                 opacity: 0.5
@@ -338,7 +199,6 @@
             particles = new THREE.Points(geometry, material);
             scene.add(particles);
 
-            // Wireframe intérieur
             const wireGeo = new THREE.SphereGeometry(24, 15, 15);
             const wireMat = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.05 });
             sphere = new THREE.Mesh(wireGeo, wireMat);
@@ -357,14 +217,73 @@
         }
 
         /* --- UI LOGIC --- */
-        function showPage(id) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            
-            document.getElementById(id).classList.add('active');
-            event.currentTarget.classList.add('active');
-            window.scrollTo(0, 0);
+        var VALID_PAGES = ['home', 'about', 'services', 'projects', 'proofs', 'lab'];
+
+        // 1. Gérer la redirection transparente venant du fichier 404.html
+        (function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var redirect = urlParams.get('redirect');
+            if (redirect) {
+                window.history.replaceState(null, null, redirect);
+            }
+        })();
+
+        // 2. Détecter sur quelle page on se trouve
+        function getCurrentPage() {
+            var path = window.location.pathname;
+            var match = path.match(/\/pages\/(.+)\.html$/);
+            if (match && VALID_PAGES.includes(match[1])) {
+                return match[1];
+            }
+            var hash = window.location.hash.replace('#', '').trim();
+            return VALID_PAGES.includes(hash) ? hash : 'home';
         }
+
+        function showPage(id, el, pushState) {
+            if (pushState === undefined) pushState = true;
+            if (!VALID_PAGES.includes(id)) id = 'home';
+            document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+            document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
+
+            var target = document.getElementById(id);
+            if (target) target.classList.add('active');
+
+            if (el) {
+                el.classList.add('active');
+            } else {
+                var navEl = document.querySelector('.nav-link[onclick*=' + id + ']');
+                if (navEl) navEl.classList.add('active');
+            }
+
+            window.scrollTo(0, 0);
+
+            /* Update URL sans recharger (format propre) */
+            if (pushState) {
+                var basePath = window.location.pathname;
+                if (basePath.includes('/pages/')) {
+                    basePath = basePath.split('/pages/')[0];
+                } else if (basePath.endsWith('index.html')) {
+                    basePath = basePath.replace('index.html', '');
+                }
+                if (!basePath.endsWith('/')) basePath += '/';
+
+                var urlPath = (id === 'home') ? basePath : basePath + 'pages/' + id + '.html';
+                history.pushState({ page: id }, '', urlPath);
+            }
+
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo('#' + id + ' .service-card, #' + id + ' .proof-card, #' + id + ' .project-card, #' + id + ' .achievement-card, #' + id + ' .thm-badge-card',
+                    { y: 40, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.5, stagger: 0.07, ease: 'power3.out', clearProps: 'all' }
+                );
+            }
+        }
+
+        /* Handle browser back/forward buttons */
+        window.addEventListener('popstate', function(e) {
+            var id = (e.state && e.state.page) ? e.state.page : getCurrentPage();
+            showPage(id, null, false);
+        });
 
         function openCert(src, title) {
             document.getElementById('mImg').src = src;
@@ -372,33 +291,113 @@
             new bootstrap.Modal(document.getElementById('certModal')).show();
         }
 
-    // Custom Cursor
-        const cursor = document.getElementById('cursor');
-        window.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+        /* --- Custom Cursor (desktop only) --- */
+        if (window.innerWidth > 768) {
+            const cursor = document.getElementById('cursor');
+            window.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        }
 
-        window.onload = () => {
+        /* --- TYPEWRITER ENGINE --- */
+        function typeWriter(el, text, speed, callback) {
+            el.textContent = '';
+            el.style.borderRight = '2px solid var(--accent)';
+            el.style.display = 'inline';
+            var i = 0;
+            function tick() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(tick, speed + Math.random() * 30);
+                } else {
+                    // blink then remove cursor
+                    setTimeout(function() {
+                        el.style.animation = 'cursor-blink 0.7s step-end 4';
+                        setTimeout(function() {
+                            el.style.borderRight = 'none';
+                            el.style.animation = '';
+                            if (callback) callback();
+                        }, 2800);
+                    }, 200);
+                }
+            }
+            tick();
+        }
+
+        /* --- INIT --- */
+        window.addEventListener('load', function() {
+            // Cacher le preloader avec fluidité
+            setTimeout(function() {
+                var loader = document.getElementById('page-loader');
+                if (loader) loader.classList.add('hidden');
+            }, 400);
+            if (typeof lucide !== 'undefined') lucide.createIcons();
             init3D();
-            lucide.createIcons();
-            // Animation d'entrée GSAP
-            gsap.from(".glitch-text", { duration: 1.5, y: 100, opacity: 0, ease: "power4.out" });
-        };
+
+            /* Charge la bonne page au démarrage */
+            var startPage = getCurrentPage();
+            if (startPage !== 'home') {
+                showPage(startPage, null, false);
+            } else {
+                history.replaceState({ page: 'home' }, '', window.location.pathname);
+            }
+
+            if (typeof gsap !== 'undefined') {
+                gsap.from('.glitch-text', { duration: 1.2, y: 80, opacity: 0, ease: 'power4.out' });
+                gsap.from('.hero-badge', { duration: 0.8, y: -20, opacity: 0, ease: 'power3.out', delay: 0.3 });
+            }
+
+            /* --- Typewriter on subtitle after short delay --- */
+            var subtitleEl = document.getElementById('hero-subtitle');
+            if (subtitleEl) {
+                var subtitleText = "Ingénieur de formation (L2 IST Gounghin). Je construis des infrastructures résilientes et des solutions web de haute sécurité.";
+                setTimeout(function() {
+                    typeWriter(subtitleEl, subtitleText, 28, null);
+                }, 700);
+            }
+        });
 
         window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
+            if (renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="scripts/scanner.js"></script>
+
+    <!-- Script d'inclusion des composants -->
+    <script>
+        async function loadComponent(id, file) {
+            try {
+                const response = await fetch('components/' + file);
+                if (response.ok) {
+                    const html = await response.text();
+                    document.getElementById(id).innerHTML = html;
+                }
+            } catch (error) {
+                console.error('Erreur de chargement pour ' + file, error);
+            }
+        }
+        async function initApp() {
+            await Promise.all([
+                loadComponent('about-container', 'about.html'),
+                loadComponent('services-container', 'services.html'),
+                loadComponent('projects-container', 'projects.html'),
+                loadComponent('proofs-container', 'proofs.html'),
+                loadComponent('lab-container', 'lab.html')
+            ]);
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
 </body>
 </html>
-
-
-
 
 
 
