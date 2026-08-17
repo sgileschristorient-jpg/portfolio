@@ -156,216 +156,28 @@ nav::after {
 }
 
 /* ============================================
-   HERO SECTION — REDESIGN
+   HERO SECTION
    ============================================ */
-
-/* Background orbs */
-.hero-bg-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    z-index: 0;
-}
-.orb-1 {
-    width: 420px; height: 420px;
-    background: radial-gradient(circle, rgba(0,242,255,0.13), transparent 70%);
-    top: -80px; left: -80px;
-    animation: orb-float 8s ease-in-out infinite;
-}
-.orb-2 {
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(112,0,255,0.11), transparent 70%);
-    bottom: -100px; right: -100px;
-    animation: orb-float 11s ease-in-out infinite reverse;
-}
-@keyframes orb-float {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50%       { transform: translateY(-30px) scale(1.06); }
-}
-
-/* Scan line */
-.hero-scan-line {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity: 0.35;
-    animation: scan-move 4s ease-in-out infinite;
-    z-index: 1;
-}
-@keyframes scan-move {
-    0%   { top: 0%;   opacity: 0.35; }
-    50%  { top: 100%; opacity: 0.1; }
-    100% { top: 0%;   opacity: 0.35; }
-}
-
 .hero {
     min-height: 100vh;
-    padding-top: var(--nav-h);
+    padding-top: 80px;
     padding-bottom: 40px;
     position: relative;
-    overflow: hidden;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.hero-inner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    width: 100%;
-}
-
-.hero-top-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-/* Badges */
 .hero-badge {
     background: rgba(0, 242, 255, 0.08);
     border: 1px solid rgba(0, 242, 255, 0.2);
     color: var(--accent);
     font-family: 'Fira Code', monospace;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     backdrop-filter: blur(10px);
     animation: fadeInDown 0.8s ease 0.2s both;
-    transition: all 0.3s ease;
-}
-.hero-badge:hover {
-    background: rgba(0, 242, 255, 0.15);
-    transform: translateY(-2px);
 }
 
-/* -- Identity card (directly below photo) -- */
-.hero-identity-card {
-    margin: 1rem auto 0.8rem;
-    padding: 1rem 2rem 1.2rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0,242,255,0.14);
-    border-radius: 22px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    display: inline-block;
-    position: relative;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 0 24px rgba(0,242,255,0.03);
-    transition: box-shadow 0.4s ease;
-}
+.hero-text-wrap { max-width: 600px; }
 
-.hero-firstname {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(0.95rem, 3vw, 1.2rem);
-    font-weight: 400;
-    color: rgba(255,255,255,0.65);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
-}
-
-.hero-lastname {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(4.5rem, 18vw, 10rem);
-    font-weight: 800;
-    letter-spacing: -4px;
-    line-height: 0.9;
-    background: linear-gradient(110deg,
-        #ffffff 0%,
-        var(--accent) 30%,
-        #b8f4ff 55%,
-        var(--accent-secondary) 75%,
-        #ffffff 100%
-    );
-    background-size: 280% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: name-shine 5s linear infinite;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    display: inline-block;
-}
-
-/* Glowing outline ghost behind SALOU */
-.hero-lastname::after {
-    content: attr(data-text);
-    position: absolute;
-    inset: 0;
-    background: none;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px rgba(0,242,255,0.15);
-    filter: blur(8px);
-    z-index: -1;
-}
-
-.hero-lastname-underline {
-    height: 3px;
-    width: clamp(80px, 30%, 200px);
-    margin: 0.6rem auto 0;
-    background: var(--accent-gradient);
-    border-radius: 2px;
-    box-shadow: 0 0 12px rgba(0,242,255,0.5);
-    animation: underline-pulse 3s ease-in-out infinite;
-}
-@keyframes underline-pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(0,242,255,0.5); }
-    50%       { opacity: 0.6; box-shadow: 0 0 24px rgba(0,242,255,0.9); }
-}
-
-/* Subtitle typewriter */
-.hero-subtitle-tw {
-    font-family: 'Fira Code', monospace;
-    font-size: clamp(0.82rem, 2vw, 1rem);
-    line-height: 1.8;
-    letter-spacing: 0.02em;
-    color: var(--text-muted);
-    max-width: 560px;
-    margin-top: 1rem;
-    min-height: 3.5em;
-}
-
-/* Scroll hint */
-.hero-scroll-hint {
-    margin-top: 1.2rem;
-    color: rgba(0,242,255,0.4);
-    animation: bounce-hint 2s ease-in-out infinite;
-}
-@keyframes bounce-hint {
-    0%, 100% { transform: translateY(0); opacity: 0.4; }
-    50%       { transform: translateY(8px); opacity: 0.8; }
-}
-
-/* Actions */
-.hero-actions { width: 100%; }
-
-@keyframes name-shine {
-    0%   { background-position: 0% center; }
-    100% { background-position: 280% center; }
-}
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Typewriter cursor blink */
-@keyframes cursor-blink {
-    0%, 100% { border-right-color: var(--accent); }
-    50%       { border-right-color: transparent; }
-}
-
-#hero-subtitle { min-height: 3.5em; }
-
-/* Removed old glitch-text / accent-name for hero — kept for other pages */
 .glitch-text {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
     font-weight: 800;
@@ -392,6 +204,29 @@ nav::after {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
+}
+
+@keyframes name-shine {
+    0%   { background-position: 0% center; }
+    100% { background-position: 250% center; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Typewriter cursor blink */
+@keyframes cursor-blink {
+    0%, 100% { border-right-color: var(--accent); }
+    50%       { border-right-color: transparent; }
+}
+
+#hero-subtitle {
+    font-family: 'Fira Code', monospace;
+    font-size: 1rem;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
 }
 
 /* Hero Buttons */
@@ -485,8 +320,8 @@ nav::after {
 }
 
 .hero-main-profile {
-    width: 400px !important;
-    height: 400px !important;
+    width: 360px !important;
+    height: 360px !important;
     margin: 0 auto;
 }
 
@@ -1763,6 +1598,5 @@ nav::after {
 .btn-hero-icon.linkedin:hover i { text-shadow: 0 0 15px rgba(10,102,194,0.9); }
 .btn-hero-icon.youtube:hover i { text-shadow: 0 0 15px rgba(255,0,0,0.9); }
 .btn-hero-icon.tryhackme:hover i { text-shadow: 0 0 15px rgba(136,204,20,0.9); }
-
 
 
