@@ -407,7 +407,6 @@
                 const response = await fetch('components/' + file);
                 if (response.ok) {
                     const html = await response.text();
-                    if (html.toLowerCase().includes('<html')) return; // Eviter l'injection de la page 404/index
                     document.getElementById(id).innerHTML = html;
                 }
             } catch (error) {
@@ -425,8 +424,6 @@
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
             }
-            // Forcer l'affichage correct si on a recharge une page via l'URL
-            showPage(getCurrentPage(), null, false);
         }
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
