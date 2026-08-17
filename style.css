@@ -246,10 +246,19 @@ nav::after {
     transform: translateY(-2px);
 }
 
-/* Name block */
-.hero-name-block {
-    margin: 0.4rem 0 1rem;
-    line-height: 1;
+/* -- Identity card (directly below photo) -- */
+.hero-identity-card {
+    margin: 1rem auto 0.8rem;
+    padding: 1rem 2rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0,242,255,0.14);
+    border-radius: 22px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: inline-block;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 0 24px rgba(0,242,255,0.03);
+    transition: box-shadow 0.4s ease;
 }
 
 .hero-firstname {
@@ -476,8 +485,8 @@ nav::after {
 }
 
 .hero-main-profile {
-    width: 360px !important;
-    height: 360px !important;
+    width: 400px !important;
+    height: 400px !important;
     margin: 0 auto;
 }
 
