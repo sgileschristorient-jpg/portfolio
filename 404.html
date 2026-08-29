@@ -4,13 +4,16 @@
     <meta charset="utf-8">
     <title>Redirection...</title>
     <script type="text/javascript">
+        // Redirection intelligente pour GitHub Pages
         var path = window.location.pathname;
         var search = window.location.search;
         var hash = window.location.hash;
         
+        // On récupère la base du site (ex: /Portfolio/)
         var basePath = path.split('/pages/')[0];
         if (basePath === path) { basePath = '/'; } else { basePath += '/'; }
 
+        // On redirige vers l'index.html en passant le faux chemin en paramètre caché
         var redirectUrl = basePath + '?redirect=' + encodeURIComponent(path + search + hash);
         window.location.replace(redirectUrl);
     </script>
