@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giles Christ-Orient SALOU — Développeur Web Full Stack</title>
-    <meta name="description" content="Portfolio de Giles Christ-Orient SALOU — Développeur Web Full Stack (Angular, Spring Boot), étudiant en Licence 3 Réseaux Informatiques et Télécommunications à l'IST Campus Gounghin. 3 applications en production.">
-    <meta name="theme-color" content="#0b0d12">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack</title>
+    <meta name="description" content="Portfolio de Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack (Angular, Spring Boot), étudiant en Licence 3 Réseaux Informatiques et Télécommunications à l'IST Campus Gounghin. 3 applications en production.">
+    <meta name="theme-color" content="#0b0a14">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Giles Christ-Orient SALOU — Développeur Web Full Stack">
+    <meta property="og:title" content="Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack">
     <meta property="og:description" content="Angular, Spring Boot, Python, réseaux & cybersécurité. 3 applications en production, major de promotion L1 et L2.">
     <meta property="og:image" content="https://sgileschristorient-jpg.github.io/portfolio/images/thumbs/logo.jpg">
     <meta property="og:url" content="https://sgileschristorient-jpg.github.io/portfolio/">
@@ -23,7 +23,6 @@
 </head>
 
 <body>
-    <!-- ======= ICÔNES (sprite SVG) ======= -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
         <defs>
             <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
@@ -59,13 +58,17 @@
             <symbol id="b-youtube" viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.87.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></symbol>
             <symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.93 9.93 0 1 0 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.06.89.9-2.98-.2-.31a8.2 8.2 0 1 1 6.86 3.73zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.17.04-.31-.02-.43l-.75-1.82c-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2.04c0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.2 3.7 1.56.68 2.17.73 2.95.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.28z"/></symbol>
             <symbol id="b-play" viewBox="0 0 24 24"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zM16.9 15.7l-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zM17 15.6 13.6 12.2 3.6 22.2c.4.4 1 .4 1.7.1L17 15.6M17 8.8 5.3 2.1c-.7-.4-1.3-.3-1.7.1l10 10L17 8.8z"/></symbol>
+            <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+            <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
         </defs>
     </svg>
-
     <a class="skip-link" href="#main">Aller au contenu</a>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="bg-fx" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
     <!-- ======= EN-TÊTE ======= -->
-    <header class="site-header" id="top">
+    <header class="site-header">
         <div class="wrap header-inner">
             <a href="#accueil" class="brand" aria-label="Accueil">
                 <span class="brand-mark">GS</span>
@@ -79,7 +82,7 @@
                 <a href="#cyber">Cybersécurité</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-sm header-yt">
+            <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-sm header-yt" aria-label="S'abonner à ma chaîne YouTube">
                 <svg class="ic fill"><use href="#b-youtube"/></svg><span>S'abonner</span>
             </a>
             <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
@@ -92,14 +95,25 @@
 
         <!-- ======= ACCUEIL ======= -->
         <section id="accueil" class="hero">
+            <canvas id="hero-canvas" aria-hidden="true"></canvas>
             <div class="wrap hero-grid">
+                <div class="hero-photo">
+                    <button class="photo-frame" type="button" data-zoom="images/logo.JPG" data-title="Ouindpouiéré Giles Christ-Orient SALOU" aria-label="Agrandir la photo">
+                        <img src="images/thumbs/logo.jpg" alt="Portrait de Ouindpouiéré Giles Christ-Orient SALOU" width="640" height="695" fetchpriority="high">
+                    </button>
+                    <div class="hero-chips">
+                        <p class="chip chip-status"><span class="dot"></span>Ouvert aux opportunités</p>
+                        <p class="chip chip-loc"><svg class="ic"><use href="#i-pin"/></svg> IST Campus Gounghin</p>
+                        <p class="chip chip-rating"><span class="stars" aria-hidden="true">★</span> DevisPro · 5,0/5</p>
+                    </div>
+                </div>
+
                 <div class="hero-text">
-                    <p class="status-pill"><span class="dot"></span>Ouvert aux opportunités</p>
-                    <h1>
-                        <span class="hero-first">Ouindpouiéré</span>
-                        Giles Christ-Orient <span class="accent">SALOU</span>
-                    </h1>
-                    <p class="hero-role">Développeur Web Full Stack <span class="mono">Angular · Spring Boot</span></p>
+                    <h1><span class="name-line"><span class="in-line">Ouindpouiéré Giles</span></span> <span class="name-line"><span class="in-line">Christ-Orient <span class="grad">SALOU</span></span></span></h1>
+                    <p class="hero-role"><span id="typed" data-words="Développeur Web Full Stack|Angular &amp; Spring Boot|Applications web et mobiles|Réseaux &amp; cybersécurité">Développeur Web Full Stack</span></p>
+                    <ul class="hero-stack mono" aria-label="Technologies principales">
+                        <li>Angular</li><li>Spring Boot</li><li>Java</li><li>TypeScript</li><li>Python</li>
+                    </ul>
                     <p class="hero-lead">
                         Étudiant en <strong>Licence 3 Réseaux Informatiques et Télécommunications</strong> à l'IST Campus Gounghin
                         (2026-2027). Je conçois des applications web et mobiles utilisées au quotidien, avec une solide culture
@@ -107,41 +121,35 @@
                     </p>
                     <div class="hero-cta">
                         <a href="#projets" class="btn btn-primary">Voir mes projets <svg class="ic"><use href="#i-arrow"/></svg></a>
-                        <a href="mailto:sgileschristorient@gmail.com" class="btn btn-ghost"><svg class="ic"><use href="#i-mail"/></svg> Me contacter</a>
+                        <a href="#contact" class="btn btn-ghost"><svg class="ic"><use href="#i-mail"/></svg> Me contacter</a>
+                        <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt hero-yt">
+                            <svg class="ic fill"><use href="#b-youtube"/></svg> S'abonner à ma chaîne YouTube
+                        </a>
                     </div>
-                    <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-lg hero-yt">
-                        <svg class="ic fill"><use href="#b-youtube"/></svg> S'abonner à ma chaîne YouTube
-                    </a>
                     <ul class="socials" aria-label="Réseaux">
                         <li><a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic fill"><use href="#b-github"/></svg></a></li>
                         <li><a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic fill"><use href="#b-linkedin"/></svg></a></li>
                         <li><a href="https://wa.me/57222160" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic fill"><use href="#b-whatsapp"/></svg></a></li>
                         <li><a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" aria-label="TryHackMe"><svg class="ic"><use href="#i-terminal"/></svg></a></li>
+                        <li><a href="mailto:sgileschristorient@gmail.com" aria-label="E-mail"><svg class="ic"><use href="#i-mail"/></svg></a></li>
                     </ul>
-                </div>
-
-                <div class="hero-photo">
-                    <button class="photo-frame" type="button" data-zoom="images/logo.JPG" data-title="Giles Christ-Orient SALOU" aria-label="Agrandir la photo">
-                        <img src="images/thumbs/logo.jpg" alt="Portrait de Giles Christ-Orient SALOU" width="640" height="695" fetchpriority="high">
-                    </button>
-                    <div class="photo-tag mono"><svg class="ic"><use href="#i-pin"/></svg> IST Campus Gounghin</div>
                 </div>
             </div>
 
             <div class="wrap">
                 <ul class="kpis">
                     <li class="kpi">
-                        <span class="kpi-num">3</span>
+                        <span class="kpi-num" data-count="3">3</span>
                         <span class="kpi-lbl">applications en production</span>
                         <span class="kpi-sub">LADIASS · DevisPro · StockManagerPro</span>
                     </li>
                     <li class="kpi">
-                        <span class="kpi-num">100+</span>
-                        <span class="kpi-lbl">téléchargements · note 5,0/5</span>
+                        <span class="kpi-num" data-count="200" data-suffix="+">200+</span>
+                        <span class="kpi-lbl">téléchargements · 5,0/5</span>
                         <span class="kpi-sub">DevisPro sur Google Play</span>
                     </li>
                     <li class="kpi">
-                        <span class="kpi-num">#1</span>
+                        <span class="kpi-num" data-count="1" data-prefix="#">#1</span>
                         <span class="kpi-lbl">major de promotion</span>
                         <span class="kpi-sub">en L1 et en L2 · IST Gounghin</span>
                     </li>
@@ -153,68 +161,130 @@
         <section id="projets" class="section">
             <div class="wrap">
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">01 — Projets</p>
+                    <p class="eyebrow mono"><span>01</span> Projets</p>
                     <h2>Des applications utilisées pour de vrai</h2>
                     <p class="section-intro">Développement web full stack, applications mobiles, logiciels Python sur mesure et projets collaboratifs.</p>
                 </header>
 
-                <div class="projects-featured">
+                <div class="projects">
                     <!-- LADIASS -->
-                    <article class="project reveal">
-                        <div class="project-top">
-                            <span class="project-icon"><svg class="ic"><use href="#i-shield"/></svg></span>
-                            <span class="badge badge-live">En production</span>
+                    <article class="project reveal" style="--tint: 92, 200, 255">
+                        <div class="shot shot-art" aria-hidden="true">
+                            <span class="shot-bar"><i></i><i></i><i></i><span class="mono">LADIASS · santé digitale</span></span>
+                            <div class="art">
+                                <svg class="ic"><use href="#i-shield"/></svg>
+                                <div class="art-rows cols-2 mono">
+                                    <span><b>Module</b><b>Statut</b></span>
+                                    <span><em>Prises en charge</em><em class="ok">Actif</em></span>
+                                    <span><em>Remboursements</em><em class="ok">Suivi</em></span>
+                                    <span><em>Transactions</em><em class="ok">Sécurisé</em></span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>LADIASS</h3>
-                        <p>Application web de gestion des bons d'assurance santé. Projet final de la formation Développeur Web Full Stack à l'Orange Digital Center, déployé en ligne.</p>
-                        <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Spring Boot</li><li>API REST</li><li>Render</li></ul>
-                        <div class="project-links">
-                            <a href="https://ladiass-frontend.onrender.com/login" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Voir en ligne <svg class="ic"><use href="#i-ext"/></svg></a>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="badge badge-live">En production</span>
+                                <span class="project-kind mono">Web · Full Stack</span>
+                            </div>
+                            <h3>LADIASS</h3>
+                            <p>Application web de gestion des bons d'assurance santé. Projet final de la formation Développeur Web Full Stack à l'Orange Digital Center, déployé en ligne.</p>
+                            <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Spring Boot</li><li>API REST</li><li>Render</li></ul>
+                            <div class="project-links">
+                                <a href="https://ladiass-frontend.onrender.com/login" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Voir en ligne <svg class="ic"><use href="#i-ext"/></svg></a>
+                            </div>
                         </div>
                     </article>
 
                     <!-- DevisPro -->
-                    <article class="project reveal">
-                        <div class="project-top">
-                            <span class="project-icon"><svg class="ic"><use href="#i-phone"/></svg></span>
-                            <span class="badge badge-live">Google Play</span>
+                    <article class="project reveal" style="--tint: 124, 132, 255">
+                        <div class="shot shot-art" aria-hidden="true">
+                            <span class="shot-bar"><i></i><i></i><i></i><span class="mono">DevisPro · Android</span></span>
+                            <div class="art art-phone">
+                                <div class="phone">
+                                    <span class="ph-notch"></span>
+                                    <span class="ph-title">Nouveau devis</span>
+                                    <span class="ph-line"></span><span class="ph-line short"></span><span class="ph-line"></span>
+                                    <span class="ph-total mono">NET À PAYER <b>XOF</b></span>
+                                    <span class="ph-btn">Valider</span>
+                                </div>
+                                <div class="float-chips">
+                                    <span class="fchip"><span class="stars">★</span> 5,0/5</span>
+                                    <span class="fchip">200+ téléchargements</span>
+                                    <span class="fchip">100 % hors ligne</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>DevisPro</h3>
-                        <p>Application Android de devis et factures, <strong>100 % hors ligne</strong>. Publiée sur Google Play depuis mai 2026 et vendue par abonnement.</p>
-                        <p class="project-metric"><span class="stars" aria-hidden="true">★★★★★</span> <strong>5,0/5</strong> · 100+ téléchargements</p>
-                        <ul class="tags"><li>Android</li><li>Flutter &amp; Dart</li><li>Hors ligne</li><li>Abonnement</li></ul>
-                        <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.devispro.facture" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><svg class="ic fill"><use href="#b-play"/></svg> Google Play</a>
-                            <a href="https://sgileschristorient-jpg.github.io/DevisPro-Facture/index.html" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Site vitrine <svg class="ic"><use href="#i-ext"/></svg></a>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="badge badge-live">Google Play</span>
+                                <span class="project-kind mono">Mobile · Android</span>
+                            </div>
+                            <h3>DevisPro</h3>
+                            <p>Application Android de devis et factures, <strong>100 % hors ligne</strong>. Publiée sur Google Play depuis mai 2026 et vendue par abonnement.</p>
+                            <p class="project-metric"><span class="stars" aria-hidden="true">★★★★★</span> <strong>5,0/5</strong> <span class="sep">200+ téléchargements</span></p>
+                            <ul class="tags"><li>Android</li><li>Flutter &amp; Dart</li><li>Hors ligne</li><li>Abonnement</li></ul>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.devispro.facture" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><svg class="ic fill"><use href="#b-play"/></svg> Google Play</a>
+                                <a href="https://sgileschristorient-jpg.github.io/DevisPro-Facture/index.html" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Site vitrine <svg class="ic"><use href="#i-ext"/></svg></a>
+                            </div>
                         </div>
                     </article>
 
                     <!-- StockManagerPro -->
-                    <article class="project reveal">
-                        <div class="project-top">
-                            <span class="project-icon"><svg class="ic"><use href="#i-package"/></svg></span>
-                            <span class="badge badge-live">Utilisé chaque jour</span>
+                    <article class="project reveal" style="--tint: 167, 139, 250">
+                        <div class="shot shot-art" aria-hidden="true">
+                            <span class="shot-bar"><i></i><i></i><i></i><span class="mono">StockManagerPro.py</span></span>
+                            <div class="art">
+                                <svg class="ic"><use href="#i-package"/></svg>
+                                <div class="art-rows mono">
+                                    <span><b>Article</b><b>Stock</b><b>État</b></span>
+                                    <span><em>Riz 25 kg</em><em>18</em><em class="ok">OK</em></span>
+                                    <span><em>Huile 5 L</em><em>4</em><em class="low">Bas</em></span>
+                                    <span><em>Boissons</em><em>62</em><em class="ok">OK</em></span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>StockManagerPro</h3>
-                        <p>Logiciel de gestion de stock hors ligne en Python, utilisé chaque jour par un restaurant depuis juin 2026. Contrôle précis des inventaires et intégrité des données.</p>
-                        <ul class="tags"><li>Python</li><li>Hors ligne</li><li>Logiciel sur mesure</li></ul>
-                        <div class="project-links">
-                            <span class="note mono">Logiciel client · non public</span>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="badge badge-live">Utilisé chaque jour</span>
+                                <span class="project-kind mono">Logiciel · Python</span>
+                            </div>
+                            <h3>StockManagerPro</h3>
+                            <p>Logiciel de gestion de stock hors ligne en Python, utilisé chaque jour par un restaurant depuis juin 2026. Contrôle précis des inventaires et intégrité des données.</p>
+                            <ul class="tags"><li>Python</li><li>Hors ligne</li><li>Logiciel sur mesure</li></ul>
+                            <div class="project-links">
+                                <span class="note mono">Logiciel client · non public</span>
+                            </div>
                         </div>
                     </article>
 
                     <!-- Club Informatique -->
-                    <article class="project reveal">
-                        <div class="project-top">
-                            <span class="project-icon"><svg class="ic"><use href="#i-users"/></svg></span>
-                            <span class="badge">Projet collaboratif</span>
+                    <article class="project reveal" style="--tint: 255, 193, 99">
+                        <div class="shot shot-art" aria-hidden="true">
+                            <span class="shot-bar"><i></i><i></i><i></i><span class="mono">up.railway.app</span></span>
+                            <div class="art art-duo">
+                                <div class="win">
+                                    <span class="win-ic"><svg class="ic"><use href="#i-users"/></svg></span>
+                                    <span><b>Club Informatique</b><em class="mono">Site du club</em></span>
+                                </div>
+                                <div class="win win-2">
+                                    <span class="win-ic"><svg class="ic"><use href="#i-spark"/></svg></span>
+                                    <span><b>Masterclass TerreTech</b><em class="mono">Réservation en ligne</em></span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Club Informatique de l'IST</h3>
-                        <p>Co-développement du site du Club Informatique et de la plateforme de réservation de la Masterclass TerreTech.</p>
-                        <ul class="tags"><li>Web</li><li>Travail en équipe</li><li>Railway</li></ul>
-                        <div class="project-links">
-                            <a href="https://istclubinformatique.up.railway.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Site du club <svg class="ic"><use href="#i-ext"/></svg></a>
-                            <a href="https://masterclassterretech-ist-ci.up.railway.app/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Masterclass TerreTech <svg class="ic"><use href="#i-ext"/></svg></a>
+                        <div class="project-body">
+                            <div class="project-top">
+                                <span class="badge">Projet collaboratif</span>
+                                <span class="project-kind mono">Web · Équipe</span>
+                            </div>
+                            <h3>Club Informatique de l'IST</h3>
+                            <p>Co-développement du site du Club Informatique et de la plateforme de réservation de la Masterclass TerreTech.</p>
+                            <ul class="tags"><li>Web</li><li>Travail en équipe</li><li>Railway</li></ul>
+                            <div class="project-links">
+                                <a href="https://istclubinformatique.up.railway.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Site du club <svg class="ic"><use href="#i-ext"/></svg></a>
+                                <a href="https://masterclassterretech-ist-ci.up.railway.app/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Masterclass TerreTech <svg class="ic"><use href="#i-ext"/></svg></a>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -222,7 +292,7 @@
                 <h3 class="sub-title reveal">Autres réalisations</h3>
                 <div class="projects-mini">
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-globe"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-globe"/></svg></span>
                         <div>
                             <h4>Boutique e-commerce</h4>
                             <p>Simulation d'interface e-commerce avec un catalogue de produits fluide.</p>
@@ -230,22 +300,21 @@
                         </div>
                     </article>
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-spark"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-spark"/></svg></span>
                         <div>
                             <h4>Vitrine amusante (Naruto)</h4>
                             <p>Site vitrine au design original et animé sur le thème de Naruto.</p>
-                            <a href="https://github.com/sgileschristorient-jpg/Portfolio-Github-Design" target="_blank" rel="noopener">Voir le code <svg class="ic"><use href="#i-ext"/></svg></a>
                         </div>
                     </article>
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-server"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-server"/></svg></span>
                         <div>
                             <h4>Labs cybersécurité (VirtualBox)</h4>
                             <p>Environnements de test locaux pour le pentest, le durcissement et la simulation d'attaques.</p>
                         </div>
                     </article>
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-terminal"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-terminal"/></svg></span>
                         <div>
                             <h4>Scripts Python</h4>
                             <p>Scripts d'automatisation et de calcul de données.</p>
@@ -253,7 +322,7 @@
                         </div>
                     </article>
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-qr"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-qr"/></svg></span>
                         <div>
                             <h4>QR codes professionnels</h4>
                             <p>Codes QR personnalisés avec intégration de logo.</p>
@@ -261,11 +330,10 @@
                         </div>
                     </article>
                     <article class="mini reveal">
-                        <svg class="ic"><use href="#i-code"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-code"/></svg></span>
                         <div>
                             <h4>Ce portfolio</h4>
-                            <p>Site statique rapide, responsive, hébergé sur GitHub Pages.</p>
-                            <a href="https://github.com/sgileschristorient-jpg/portfolio" target="_blank" rel="noopener">Code source <svg class="ic"><use href="#i-ext"/></svg></a>
+                            <p>Site statique rapide et responsive, pensé d'abord pour le mobile.</p>
                         </div>
                     </article>
                 </div>
@@ -276,19 +344,19 @@
         <section id="parcours" class="section section-alt">
             <div class="wrap">
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">02 — Parcours</p>
+                    <p class="eyebrow mono"><span>02</span> Parcours</p>
                     <h2>Formation &amp; étapes clés</h2>
                 </header>
 
                 <div class="parcours-grid">
                     <ol class="timeline">
-                        <li class="reveal">
+                        <li class="reveal is-now">
                             <span class="tl-date mono">2026 — 2027</span>
                             <h3>Licence 3 Réseaux Informatiques et Télécommunications</h3>
                             <p>IST Campus Gounghin · soutenance en 2027. <strong>Major de promotion en L1 et en L2.</strong></p>
                             <span class="badge badge-live">En cours</span>
                         </li>
-                        <li class="reveal">
+                        <li class="reveal is-now">
                             <span class="tl-date mono">Juin — sept. 2026</span>
                             <h3>Développeur Web Full Stack (Angular, Spring Boot)</h3>
                             <p>Orange Digital Center · formation intensive de 3 mois. Projet final <strong>LADIASS</strong> déployé en ligne.</p>
@@ -302,7 +370,7 @@
                         <li class="reveal">
                             <span class="tl-date mono">Mai 2026</span>
                             <h3>DevisPro publiée sur Google Play</h3>
-                            <p>Application de devis et factures : 100+ téléchargements, note 5,0/5.</p>
+                            <p>Application de devis et factures : 200+ téléchargements, note 5,0/5.</p>
                         </li>
                         <li class="reveal">
                             <span class="tl-date mono">Janvier 2026</span>
@@ -327,7 +395,7 @@
                     </ol>
 
                     <aside class="side-card reveal">
-                        <svg class="ic side-ic"><use href="#i-cap"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-cap"/></svg></span>
                         <h3>Je transmets aussi</h3>
                         <p>J'accompagne et je forme à la création de sites web et d'applications mobiles, avec une approche centrée sur la pratique.</p>
                         <span class="badge badge-live">Disponible</span>
@@ -340,33 +408,33 @@
         <section id="competences" class="section">
             <div class="wrap">
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">03 — Compétences</p>
+                    <p class="eyebrow mono"><span>03</span> Compétences</p>
                     <h2>Stack technique</h2>
                 </header>
 
                 <div class="skills">
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-code"/></svg> Front-end</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-code"/></svg></span> Front-end</h3>
                         <ul class="tags"><li>Angular</li><li>TypeScript</li><li>HTML5 / CSS3</li><li>JavaScript</li><li>Bootstrap 5</li></ul>
                     </div>
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-server"/></svg> Back-end</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-server"/></svg></span> Back-end</h3>
                         <ul class="tags"><li>Java</li><li>Spring Boot</li><li>API REST</li><li>PHP</li><li>MySQL</li></ul>
                     </div>
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-phone"/></svg> Mobile &amp; logiciel</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-phone"/></svg></span> Mobile &amp; logiciel</h3>
                         <ul class="tags"><li>Flutter &amp; Dart</li><li>Python</li><li>C</li></ul>
                     </div>
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-layers"/></svg> DevOps &amp; outils</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-layers"/></svg></span> DevOps &amp; outils</h3>
                         <ul class="tags"><li>Docker</li><li>Git / GitHub</li><li>Render</li><li>Railway</li><li>GitHub Pages</li></ul>
                     </div>
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-globe"/></svg> Réseaux &amp; systèmes</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-globe"/></svg></span> Réseaux &amp; systèmes</h3>
                         <ul class="tags"><li>TCP/IP</li><li>Windows Server 2019</li><li>Linux</li><li>DHCP Kea (Debian)</li><li>Cisco NetAcad</li></ul>
                     </div>
                     <div class="skill-group reveal">
-                        <h3><svg class="ic"><use href="#i-shield"/></svg> Cybersécurité</h3>
+                        <h3><span class="mini-ic"><svg class="ic"><use href="#i-shield"/></svg></span> Cybersécurité</h3>
                         <ul class="tags"><li>TryHackMe</li><li>Labs VirtualBox</li><li>Kali Linux</li><li>Metasploitable</li><li>Hacking éthique</li></ul>
                     </div>
                 </div>
@@ -411,62 +479,152 @@
         <section id="certifications" class="section section-alt">
             <div class="wrap">
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">04 — Certifications</p>
-                    <h2>Diplômes &amp; certifications</h2>
-                    <p class="section-intro">Cliquez sur une image pour l'agrandir.</p>
+                    <p class="eyebrow mono"><span>04</span> Certifications</p>
+                    <h2>Certifications, badges &amp; distinctions</h2>
+                    <p class="section-intro">Touchez une carte pour l'ouvrir en grand, puis naviguez avec les flèches ou en balayant.</p>
                 </header>
 
-                <div class="certs">
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/major.jpg" data-title="Major de promotion — L1 Réseaux &amp; Télécoms">
-                            <img src="images/thumbs/major.jpg" alt="Attestation de major de promotion L1" loading="lazy" width="720" height="509">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                <div class="tabs reveal" role="tablist" aria-label="Catégories">
+                    <button type="button" role="tab" id="tab-certs" aria-controls="panel-certs" aria-selected="true"><span>Certif<span class="long">ication</span>s</span> <span class="count">6</span></button>
+                    <button type="button" role="tab" id="tab-badges" aria-controls="panel-badges" aria-selected="false" tabindex="-1"><span>Badges<span class="long"> TryHackMe</span></span> <span class="count">6</span></button>
+                    <button type="button" role="tab" id="tab-awards" aria-controls="panel-awards" aria-selected="false" tabindex="-1"><span>Distinctions</span> <span class="count">3</span></button>
+                </div>
+
+                <!-- Certifications -->
+                <div class="tab-panel" id="panel-certs" role="tabpanel" aria-labelledby="tab-certs">
+                    <p class="swipe-hint mono" aria-hidden="true">Glissez pour voir les 6 certifications →</p>
+                    <div class="gallery certs" data-gallery>
+                        <figure class="cert">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/cisco.jpg" data-title="Introduction to Cybersecurity — Cisco Networking Academy" aria-label="Agrandir : Introduction to Cybersecurity">
+                                <img src="images/thumbs/cisco.jpg" alt="Certificat Cisco Introduction to Cybersecurity" loading="lazy" width="800" height="618">
+                            </button>
+                            <figcaption>
+                                <span class="cert-org org-cisco">Cisco</span>
+                                <strong>Introduction to Cybersecurity</strong>
+                                <span class="cert-meta">Cisco Networking Academy · oct. 2025</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="cert">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/file_managment_for_devops_coursera.png" data-title="Linux for DevOps — Coursera" aria-label="Agrandir : Linux for DevOps">
+                                <img src="images/thumbs/file_managment_for_devops_coursera.jpg" alt="Certificat Coursera Linux for DevOps" loading="lazy" width="800" height="610">
+                            </button>
+                            <figcaption>
+                                <span class="cert-org org-coursera">Coursera</span>
+                                <strong>Linux for DevOps</strong>
+                                <span class="cert-meta">Projet guidé Coursera · juil. 2026</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="cert">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/introduction_html_coursera.png" data-title="Introduction to HTML — Coursera" aria-label="Agrandir : Introduction to HTML">
+                                <img src="images/thumbs/introduction_html_coursera.jpg" alt="Certificat Coursera Introduction to HTML" loading="lazy" width="800" height="610">
+                            </button>
+                            <figcaption>
+                                <span class="cert-org org-coursera">Coursera</span>
+                                <strong>Introduction to HTML</strong>
+                                <span class="cert-meta">Projet guidé Coursera · développement web</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="cert">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/base_exel.png" data-title="Getting Started with Microsoft Excel — Coursera" aria-label="Agrandir : Getting Started with Microsoft Excel">
+                                <img src="images/thumbs/base_exel.jpg" alt="Certificat Coursera Getting Started with Microsoft Excel" loading="lazy" width="800" height="619">
+                            </button>
+                            <figcaption>
+                                <span class="cert-org org-coursera">Coursera</span>
+                                <strong>Getting Started with Microsoft Excel</strong>
+                                <span class="cert-meta">Projet guidé Coursera · bureautique</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="cert">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/leader.png" data-title="Programme JA Social Equity — certificat de participation" aria-label="Agrandir : Programme JA Social Equity">
+                                <img src="images/thumbs/leader.jpg" alt="Certificat de participation au programme JA Social Equity" loading="lazy" width="800" height="566">
+                            </button>
+                            <figcaption>
+                                <span class="cert-org org-ja">JA Africa</span>
+                                <strong>Programme JA Social Equity</strong>
+                                <span class="cert-meta">Formation en entrepreneuriat · déc. 2025</span>
+                            </figcaption>
+                        </figure>
+                        <figure class="cert cert-pending">
+                            <div class="cert-frame cert-empty"><svg class="ic"><use href="#i-clock"/></svg><span>Attestation à venir</span></div>
+                            <figcaption>
+                                <span class="cert-org">Formation</span>
+                                <strong>Formation Linux (3 jours)</strong>
+                                <span class="cert-meta">Formation intensive Linux</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <!-- Badges TryHackMe -->
+                <div class="tab-panel" id="panel-badges" role="tabpanel" aria-labelledby="tab-badges">
+                    <div class="badges" data-gallery>
+                        <button type="button" class="thm" data-zoom="Certificats/badeges_30jours.png" data-title="TryHackMe — 30 Day Streak">
+                            <span class="thm-ring"><img src="images/badges/streak30.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>30 Day Streak</strong>
+                            <span>30 jours d'affilée</span>
                         </button>
-                        <figcaption><span class="cert-kind">Distinction</span><strong>Major de promotion — L1</strong><span>IST Gounghin · Réseaux &amp; Télécoms (également major en L2)</span></figcaption>
-                    </figure>
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/cisco.jpg" data-title="Certificat Cybersécurité — Cisco Networking Academy">
-                            <img src="images/thumbs/cisco.jpg" alt="Certificat Cisco Cybersécurité" loading="lazy" width="720" height="556">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        <button type="button" class="thm" data-zoom="Certificats/badges_3jours.png" data-title="TryHackMe — 7 Day Streak">
+                            <span class="thm-ring"><img src="images/badges/streak7.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>7 Day Streak</strong>
+                            <span>7 jours d'affilée</span>
                         </button>
-                        <figcaption><span class="cert-kind">Cisco</span><strong>Cybersécurité — Cisco NetAcad</strong><span>Cisco Networking Academy · octobre 2025</span></figcaption>
-                    </figure>
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/file_managment_for_devops_coursera.png" data-title="Linux for DevOps — Coursera">
-                            <img src="images/thumbs/file_managment_for_devops_coursera.jpg" alt="Certificat Coursera Linux for DevOps" loading="lazy" width="720" height="377">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        <button type="button" class="thm" data-zoom="Certificats/First_four.png" data-title="TryHackMe — First Four">
+                            <span class="thm-ring"><img src="images/badges/first-four.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>First Four</strong>
+                            <span>4 rooms la 1<sup>re</sup> semaine</span>
                         </button>
-                        <figcaption><span class="cert-kind">Coursera</span><strong>Linux for DevOps</strong><span>Coursera · juillet 2026</span></figcaption>
-                    </figure>
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/introduction_html_coursera.png" data-title="Introduction to HTML5 — Coursera">
-                            <img src="images/thumbs/introduction_html_coursera.jpg" alt="Certificat Coursera Introduction to HTML5" loading="lazy" width="720" height="377">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        <button type="button" class="thm" data-zoom="Certificats/Hack2win2025.png" data-title="TryHackMe — Raffle Royalty (Hack2Win 2025)">
+                            <span class="thm-ring"><img src="images/badges/hack2win.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>Raffle Royalty</strong>
+                            <span>Hack2Win 2025</span>
                         </button>
-                        <figcaption><span class="cert-kind">Coursera</span><strong>Introduction to HTML5</strong><span>Coursera · développement web</span></figcaption>
-                    </figure>
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/leader.png" data-title="Leadership &amp; Management — JA Social Equity">
-                            <img src="images/thumbs/leader.jpg" alt="Certificat Leadership et Management" loading="lazy" width="720" height="509">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        <button type="button" class="thm" data-zoom="Certificats/bases_en_linux.png" data-title="TryHackMe — cat linux.txt">
+                            <span class="thm-ring"><img src="images/badges/linux.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>cat linux.txt</strong>
+                            <span>Compétences Linux</span>
                         </button>
-                        <figcaption><span class="cert-kind">Certificat</span><strong>Leadership &amp; Management</strong><span>Programme JA Social Equity · décembre 2025</span></figcaption>
-                    </figure>
-                    <figure class="cert reveal">
-                        <button type="button" class="cert-img" data-zoom="Certificats/base_exel.png" data-title="Bases de Excel">
-                            <img src="images/thumbs/base_exel.jpg" alt="Certificat Bases de Excel" loading="lazy" width="720" height="557">
-                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        <button type="button" class="thm" data-zoom="Certificats/comprehension_du_web.png" data-title="TryHackMe — Webbed">
+                            <span class="thm-ring"><img src="images/badges/webbed.png" alt="" loading="lazy" width="240" height="240"></span>
+                            <strong>Webbed</strong>
+                            <span>Fonctionnement du Web</span>
                         </button>
-                        <figcaption><span class="cert-kind">Certificat</span><strong>Bases de Excel</strong><span>Certificat d'achèvement</span></figcaption>
-                    </figure>
-                    <figure class="cert cert-pending reveal">
-                        <div class="cert-img cert-placeholder"><svg class="ic"><use href="#i-clock"/></svg><span>Attestation à venir</span></div>
-                        <figcaption><span class="cert-kind">En attente</span><strong>Formation Linux (3 jours)</strong><span>Formation intensive Linux</span></figcaption>
-                    </figure>
-                    <figure class="cert cert-pending reveal">
-                        <div class="cert-img cert-placeholder"><svg class="ic bronze"><use href="#i-medal"/></svg><span>Attestation à venir</span></div>
-                        <figcaption><span class="cert-kind">Sport</span><strong>Vovinam Viet Vo Dao — médaille de bronze</strong><span>Compétition d'arts martiaux</span></figcaption>
-                    </figure>
+                    </div>
+                    <div class="badges-foot">
+                        <p>Profil actif : <span class="mono">sgileschristorient</span></p>
+                        <a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Voir le profil TryHackMe <svg class="ic"><use href="#i-ext"/></svg></a>
+                    </div>
+                </div>
+
+                <!-- Distinctions -->
+                <div class="tab-panel" id="panel-awards" role="tabpanel" aria-labelledby="tab-awards">
+                    <div class="awards" data-gallery>
+                        <figure class="award award-main">
+                            <button type="button" class="cert-frame" data-zoom="Certificats/major.jpg" data-title="Attestation de mérite — Major de promotion L1" aria-label="Agrandir : attestation de major de promotion">
+                                <img src="images/thumbs/major.jpg" alt="Attestation de mérite, major de promotion L1" loading="lazy" width="800" height="580">
+                            </button>
+                            <figcaption>
+                                <span class="award-ic"><svg class="ic"><use href="#i-award"/></svg></span>
+                                <div>
+                                    <strong>Major de promotion — L1</strong>
+                                    <span class="cert-meta">IST Gounghin · Réseaux Informatiques et Télécoms · attestation de mérite</span>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="award">
+                            <span class="award-ic"><svg class="ic"><use href="#i-award"/></svg></span>
+                            <div>
+                                <strong>Major de promotion — L2</strong>
+                                <span class="cert-meta">IST Gounghin · deuxième année consécutive</span>
+                            </div>
+                        </div>
+                        <div class="award">
+                            <span class="award-ic bronze"><svg class="ic"><use href="#i-medal"/></svg></span>
+                            <div>
+                                <strong>Médaille de bronze — Vovinam Viet Vo Dao</strong>
+                                <span class="cert-meta">Compétition d'arts martiaux · attestation à venir</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -475,56 +633,20 @@
         <section id="cyber" class="section">
             <div class="wrap">
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">05 — Cybersécurité</p>
-                    <h2>TryHackMe &amp; CyberLab</h2>
-                    <p class="section-intro">Pratique régulière sur TryHackMe et dans mes labs VirtualBox.</p>
+                    <p class="eyebrow mono"><span>05</span> Cybersécurité</p>
+                    <h2>CyberLab</h2>
+                    <p class="section-intro">Pratique régulière sur TryHackMe et dans mes labs VirtualBox. Testez ci-dessous mon mini-scanner : une analyse heuristique simplifiée d'une URL (DNS, HTTPS, motifs de phishing), à but pédagogique.</p>
                 </header>
 
-                <div class="thm-head reveal">
-                    <div>
-                        <h3>Badges TryHackMe</h3>
-                        <p>Profil actif · <span class="mono">sgileschristorient</span></p>
-                    </div>
-                    <a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Voir tous les badges <svg class="ic"><use href="#i-ext"/></svg></a>
-                </div>
-                <div class="badges">
-                    <button type="button" class="thm reveal" data-zoom="Certificats/badeges_30jours.png" data-title="30 Day Streak">
-                        <img src="images/thumbs/badeges_30jours.png" alt="Badge 30 Day Streak" loading="lazy" width="320" height="165">
-                        <span><strong>30 Day Streak</strong>30 jours de hacking consécutifs</span>
-                    </button>
-                    <button type="button" class="thm reveal" data-zoom="Certificats/badges_3jours.png" data-title="7 Day Streak">
-                        <img src="images/thumbs/badges_3jours.png" alt="Badge 7 Day Streak" loading="lazy" width="320" height="165">
-                        <span><strong>7 Day Streak</strong>7 jours de hacking consécutifs</span>
-                    </button>
-                    <button type="button" class="thm reveal" data-zoom="Certificats/First_four.png" data-title="First Four">
-                        <img src="images/thumbs/First_four.png" alt="Badge First Four" loading="lazy" width="320" height="165">
-                        <span><strong>First Four</strong>4 rooms terminées la première semaine</span>
-                    </button>
-                    <button type="button" class="thm reveal" data-zoom="Certificats/Hack2win2025.png" data-title="Raffle Royalty — Hack2Win 2025">
-                        <img src="images/thumbs/Hack2win2025.png" alt="Badge Hack2Win 2025" loading="lazy" width="320" height="165">
-                        <span><strong>Raffle Royalty</strong>Participation Hack2Win 2025</span>
-                    </button>
-                    <button type="button" class="thm reveal" data-zoom="Certificats/bases_en_linux.png" data-title="cat linux.txt — compétences Linux">
-                        <img src="images/thumbs/bases_en_linux.png" alt="Badge cat linux.txt" loading="lazy" width="320" height="165">
-                        <span><strong>cat linux.txt</strong>Compétences Linux validées</span>
-                    </button>
-                    <button type="button" class="thm reveal" data-zoom="Certificats/comprehension_du_web.png" data-title="Webbed — World Wide Web">
-                        <img src="images/thumbs/comprehension_du_web.png" alt="Badge Webbed" loading="lazy" width="320" height="165">
-                        <span><strong>Webbed</strong>Compréhension du World Wide Web</span>
-                    </button>
-                </div>
-
-                <!-- CyberLab -->
                 <div class="terminal reveal" id="lab">
                     <div class="terminal-bar">
                         <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
                         <span class="mono terminal-title">security_scanner --target <span id="targetDisplay">none</span></span>
                     </div>
                     <div class="terminal-body">
-                        <p class="lab-intro">CyberLab — analyse heuristique simplifiée d'une URL (DNS, HTTPS, motifs de phishing). Démonstration pédagogique.</p>
                         <form class="scan-form" onsubmit="event.preventDefault(); runScanner();">
                             <span class="mono prompt">$</span>
-                            <input type="text" id="urlInput" placeholder="Entrez une URL (ex : google.com)" autocomplete="off" aria-label="URL à analyser">
+                            <input type="text" id="urlInput" placeholder="Entrez une URL (ex : google.com)" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="URL à analyser">
                             <button type="submit" class="btn btn-primary btn-sm" id="scanBtn">Lancer l'analyse</button>
                         </form>
                         <div class="scanner">
@@ -566,30 +688,30 @@
                 </div>
 
                 <header class="section-head reveal">
-                    <p class="eyebrow mono">06 — Contact</p>
+                    <p class="eyebrow mono"><span>06</span> Contact</p>
                     <h2>Travaillons ensemble</h2>
                     <p class="section-intro">Un projet web ou mobile, une opportunité ? Écrivez-moi.</p>
                 </header>
 
                 <div class="contact-grid">
-                    <a class="contact-card reveal" href="mailto:sgileschristorient@gmail.com">
-                        <svg class="ic"><use href="#i-mail"/></svg>
+                    <a class="contact-card contact-main reveal" href="mailto:sgileschristorient@gmail.com">
+                        <span class="mini-ic"><svg class="ic"><use href="#i-mail"/></svg></span>
                         <span><strong>E-mail</strong>sgileschristorient@gmail.com</span>
                     </a>
                     <a class="contact-card reveal" href="https://wa.me/57222160" target="_blank" rel="noopener">
-                        <svg class="ic fill"><use href="#b-whatsapp"/></svg>
+                        <span class="mini-ic"><svg class="ic fill"><use href="#b-whatsapp"/></svg></span>
                         <span><strong>WhatsApp</strong>Écrivez-moi directement</span>
                     </a>
                     <a class="contact-card reveal" href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener">
-                        <svg class="ic fill"><use href="#b-linkedin"/></svg>
-                        <span><strong>LinkedIn</strong>Giles Christ-Orient SALOU</span>
+                        <span class="mini-ic"><svg class="ic fill"><use href="#b-linkedin"/></svg></span>
+                        <span><strong>LinkedIn</strong>Profil professionnel</span>
                     </a>
                     <a class="contact-card reveal" href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener">
-                        <svg class="ic fill"><use href="#b-github"/></svg>
+                        <span class="mini-ic"><svg class="ic fill"><use href="#b-github"/></svg></span>
                         <span><strong>GitHub</strong>sgileschristorient-jpg</span>
                     </a>
                     <a class="contact-card reveal" href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener">
-                        <svg class="ic"><use href="#i-terminal"/></svg>
+                        <span class="mini-ic"><svg class="ic"><use href="#i-terminal"/></svg></span>
                         <span><strong>TryHackMe</strong>sgileschristorient</span>
                     </a>
                 </div>
@@ -599,21 +721,37 @@
 
     <footer class="site-footer">
         <div class="wrap footer-inner">
-            <p>© <span id="year">2026</span> Giles Christ-Orient SALOU · Développeur Web Full Stack</p>
-            <a href="#accueil" class="mono">Haut de page ↑</a>
+            <div class="footer-id">
+                <p class="footer-name">Ouindpouiéré Giles Christ-Orient SALOU</p>
+                <p class="footer-role">Développeur Web Full Stack · © <span id="year">2026</span></p>
+            </div>
+            <ul class="footer-icons" aria-label="Réseaux">
+                <li><a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" aria-label="YouTube" class="s-yt"><svg class="ic fill"><use href="#b-youtube"/></svg></a></li>
+                <li><a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic fill"><use href="#b-github"/></svg></a></li>
+                <li><a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic fill"><use href="#b-linkedin"/></svg></a></li>
+                <li><a href="https://wa.me/57222160" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic fill"><use href="#b-whatsapp"/></svg></a></li>
+                <li><a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" aria-label="TryHackMe"><svg class="ic"><use href="#i-terminal"/></svg></a></li>
+                <li><a href="mailto:sgileschristorient@gmail.com" aria-label="E-mail"><svg class="ic"><use href="#i-mail"/></svg></a></li>
+            </ul>
         </div>
     </footer>
 
-    <!-- ======= VISIONNEUSE D'IMAGES ======= -->
+    <!-- ======= VISIONNEUSE ======= -->
     <dialog id="viewer" aria-labelledby="viewer-title">
         <div class="viewer-head">
             <p id="viewer-title"></p>
-            <button type="button" class="viewer-close" aria-label="Fermer"><svg class="ic"><use href="#i-x"/></svg></button>
+            <span class="viewer-count mono" id="viewer-count"></span>
+            <button type="button" class="icon-btn viewer-close" aria-label="Fermer"><svg class="ic"><use href="#i-x"/></svg></button>
         </div>
-        <img id="viewer-img" src="data:," alt="">
+        <div class="viewer-stage">
+            <img id="viewer-img" src="data:," alt="">
+            <button type="button" class="icon-btn viewer-nav prev" aria-label="Image précédente"><svg class="ic"><use href="#i-left"/></svg></button>
+            <button type="button" class="icon-btn viewer-nav next" aria-label="Image suivante"><svg class="ic"><use href="#i-right"/></svg></button>
+        </div>
     </dialog>
 
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/effects.js" defer></script>
     <script src="scripts/scanner.js" defer></script>
 </body>
 </html>
