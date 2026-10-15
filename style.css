@@ -348,12 +348,12 @@ body.menu-open { overflow: hidden; }
 .name-line { display: block; }
 .accent-name { color: var(--accent); }
 .hero-role { margin-top: 14px; font-family: var(--font-head); font-size: clamp(1.1rem, 4vw, 1.45rem); font-weight: 600; }
-.hero-role span { display: block; white-space: nowrap; margin-top: 2px; color: var(--muted); font-weight: 500; font-size: .85em; }
+.hero-role > span:not(.sr-only):not(.tw-role) { display: block; white-space: nowrap; margin-top: 2px; color: var(--muted); font-weight: 500; font-size: .85em; }
 .hero-lead { margin: 16px auto 0; color: var(--muted); max-width: 58ch; font-size: 1.02rem; }
 
 .hero-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
 .hero-cta .btn { padding-left: 12px; padding-right: 12px; white-space: nowrap; }
-@media (max-width: 379px) { .hero-cta { grid-template-columns: 1fr; } }
+@media (max-width: 379px) { .hero-cta .btn { padding-left: 8px; padding-right: 8px; font-size: 0.86rem; gap: 6px; } .hero-cta .btn-primary .ic { display: none; } }
 .hero-yt { grid-column: 1 / -1; }
 .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
 .socials a {
@@ -384,6 +384,51 @@ body.menu-open { overflow: hidden; }
     .proofs { grid-template-columns: 1fr 1fr; max-width: 640px; }
 }
 
+
+/* Téléphone : tout l'essentiel de l'accueil tient dans le premier écran */
+@media (max-width: 559px) {
+    .hero { padding: 14px 0 32px; }
+    .hero-grid { gap: 6px; }
+    .photo-stage { --photo: clamp(128px, 38vw, 150px); --r-out: calc(var(--photo) / 2 + 26px); --orb: 32px; }
+    .hero-status { font-size: 0.8rem; padding: 6px 12px; margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(1.75rem, 8vw, 2.1rem); }
+    .hero-role { margin-top: 8px; font-size: 0.98rem; }
+    .hero-role > span:not(.sr-only):not(.tw-role) { display: inline; margin: 0; font-size: 1em; white-space: normal; }
+    .hero-role > span:not(.sr-only):not(.tw-role)::before { content: "· "; color: var(--faint); }
+    .hero-hook { margin-top: 10px; font-size: 1.08rem; }
+    .hero-lead { margin-top: 8px; font-size: 0.9rem; line-height: 1.5; }
+    .hero-cta { margin-top: 16px; }
+}
+
+
+/* Petits écrans en hauteur (ex. 360x640) : on resserre encore */
+@media (max-width: 559px) and (max-height: 720px) {
+    .hero { padding-top: 6px; }
+    .photo-stage { --photo: 108px; --r-out: calc(var(--photo) / 2 + 20px); --orb: 28px; }
+    .hero-status { font-size: 0.74rem; padding: 5px 10px; margin-bottom: 6px; }
+    .hero h1 { font-size: 1.7rem; line-height: 1.02; }
+    .hero-role { margin-top: 6px; font-size: 0.9rem; }
+    .hero-hook { margin-top: 8px; font-size: 1rem; line-height: 1.22; }
+    .hero-lead { margin-top: 6px; font-size: 0.84rem; line-height: 1.45; }
+    .hero-cta { margin-top: 12px; }
+    .hero-cta .btn { min-height: 44px; padding-top: 8px; padding-bottom: 8px; }
+}
+
+
+/* Nom et titre écrits au chargement (machine à écrire) */
+.tw-rest { visibility: hidden; }
+.tw-caret { display: inline; border-left: 3px solid var(--accent); margin-right: -3px; animation: tw-blink 1s steps(1) infinite; }
+@keyframes tw-blink { 50% { opacity: 0; } }
+.hero-role { line-height: 1.3; min-height: 1.3em; }
+@media (max-width: 559px) { .hero-role { min-height: 2.6em; } }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+
+/* Grands téléphones (ex. 390x844, 412x915) : il reste de la place, photo plus grande */
+@media (max-width: 559px) and (min-height: 780px) {
+    .photo-stage { --photo: 176px; --r-out: calc(var(--photo) / 2 + 30px); --orb: 34px; }
+}
+
 /* Chiffres clés : une simple rangée de chiffres, sans cartes */
 .facts { display: grid; margin-top: 36px; border-top: 1px solid var(--border); }
 .facts li { display: flex; align-items: baseline; gap: 14px; padding: 14px 2px; border-bottom: 1px solid var(--border); }
@@ -409,8 +454,8 @@ body.menu-open { overflow: hidden; }
     .hero-cta, .socials { justify-content: flex-start; }
     .hero-lead { margin-left: 0; }
     .hero-role { font-size: 1.25rem; }
-    .hero-role span { display: inline; margin: 0; font-size: 1em; }
-    .hero-role span::before { content: "· "; color: var(--faint); }
+    .hero-role > span:not(.sr-only):not(.tw-role) { display: inline; margin: 0; font-size: 1em; }
+    .hero-role > span:not(.sr-only):not(.tw-role)::before { content: "· "; color: var(--faint); }
     .hero-photo { order: 2; }
     .hero h1 { font-size: clamp(2.6rem, 4.3vw, 3.6rem); }
     .photo-stage { --photo: 250px; --r-out: 178px; --r-in: 148px; --orb: 42px; }

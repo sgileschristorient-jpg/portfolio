@@ -193,4 +193,113 @@
     });
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* --- Machine à écrire sur tout l'accueil ---
+       Ordre : pastille, nom, premier rôle, accroche, présentation ; un seul curseur à la fois.
+       Ensuite le curseur revient sur la ligne des rôles, qui défile en boucle.
+       Les textes complets restent dans le HTML (référencement, JS désactivé) et une copie
+       lisible par les lecteurs d'écran est conservée. La partie pas encore écrite est invisible
+       mais garde sa place : la mise en page ne bouge pas. */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var nameEl = document.getElementById('hero-name');
+    var roleEl = document.getElementById('hero-role');
+    var statusEl = document.querySelector('.hero-status');
+    var hookEl = document.querySelector('.hero-hook');
+    var leadEl = document.querySelector('.hero-lead');
+    if (!nameEl || !roleEl || !statusEl || !hookEl || !leadEl) return;
+
+    function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    // Prépare un élément : segments de texte (avec leur classe) + éléments décoratifs fixes (ex. la pastille verte)
+    function prepare(el, withSrCopy) {
+        var fixed = '';
+        var segs = [];
+        el.childNodes.forEach(function (n) {
+            if (n.nodeType === 1 && !n.textContent.trim()) { fixed += n.outerHTML; return; }
+            var text = n.textContent.replace(/\s+/g, ' ');
+            if (text) segs.push({ text: text, cls: n.nodeType === 1 ? n.className : '' });
+        });
+        var full = segs.map(function (s) { return s.text; }).join('');
+        if (segs.length) segs[0].text = segs[0].text.replace(/^\s+/, '');
+        var total = segs.reduce(function (n, s) { return n + s.text.length; }, 0);
+        var item = { el: el, fixed: fixed, segs: segs, total: total };
+        if (withSrCopy) {
+            el.innerHTML = fixed + '<span class="sr-only">' + esc(full.trim()) + '</span><span class="tw-vis" aria-hidden="true"></span>';
+            item.target = el.querySelector('.tw-vis');
+            item.fixed = '';
+        } else {
+            item.target = el;
+            el.setAttribute('aria-hidden', 'true');
+        }
+        return item;
+    }
+    function render(item, count, caret) {
+        var typed = '';
+        var rest = '';
+        var left = count;
+        item.segs.forEach(function (sg) {
+            var shown = sg.text.slice(0, Math.max(0, left));
+            var hidden = sg.text.slice(shown.length);
+            left -= sg.text.length;
+            var open = sg.cls ? '<span class="' + sg.cls + '">' : '';
+            var close = sg.cls ? '</span>' : '';
+            if (shown) typed += open + esc(shown) + close;
+            if (hidden) rest += open + esc(hidden) + close;
+        });
+        item.target.innerHTML = item.fixed + typed + (caret ? '<span class="tw-caret"></span>' : '') + (rest ? '<span class="tw-rest">' + rest + '</span>' : '');
+    }
+
+    // Ligne des rôles : premier rôle écrit dans la séquence, puis boucle
+    var roles = roleEl.getAttribute('data-roles').split('|');
+    roleEl.setAttribute('data-roles-done', '');
+    roleEl.innerHTML = '<span class="sr-only">' + esc(roles[0]) + '</span><span class="tw-role" aria-hidden="true"></span>';
+    var roleItem = { el: roleEl, target: roleEl.querySelector('.tw-role'), fixed: '', segs: [{ text: roles[0], cls: '' }], total: roles[0].length };
+
+    var nameLines = Array.prototype.map.call(nameEl.querySelectorAll('.name-line'), function (l) { return prepare(l, false); });
+    var seq = [
+        { item: prepare(statusEl, true), speed: [18, 26] },
+        { item: nameLines[0], speed: [40, 62] },
+        { item: nameLines[1], speed: [40, 62] },
+        { item: roleItem, speed: [18, 26] },
+        { item: prepare(hookEl, true), speed: [10, 14] },
+        { item: prepare(leadEl, true), speed: [5, 8] }
+    ];
+    seq.forEach(function (s) { render(s.item, 0, false); });
+
+    var si = 0;
+    var ci = 0;
+    function typeNext() {
+        var step = seq[si];
+        ci++;
+        render(step.item, ci, true);
+        if (ci < step.item.total) return setTimeout(typeNext, rand(step.speed[0], step.speed[1]));
+        render(step.item, ci, false);
+        si++; ci = 0;
+        if (si < seq.length) return setTimeout(typeNext, 90);
+        // Tout est écrit : le curseur revient sur la ligne des rôles
+        showRole(roles[0].length);
+        setTimeout(tickRole, 1800);
+    }
+    setTimeout(typeNext, 300);
+
+    var r = 0;
+    var pos = roles[0].length;
+    var deleting = true;
+    function showRole(n) {
+        roleItem.target.innerHTML = esc(roles[r].slice(0, n)) + '<span class="tw-caret"></span>';
+    }
+    function tickRole() {
+        if (deleting) {
+            pos--;
+            showRole(pos);
+            if (pos <= 0) { deleting = false; r = (r + 1) % roles.length; return setTimeout(tickRole, 450); }
+            return setTimeout(tickRole, rand(28, 50));
+        }
+        pos++;
+        showRole(pos);
+        if (pos >= roles[r].length) { deleting = true; return setTimeout(tickRole, 1800); }
+        setTimeout(tickRole, rand(60, 110));
+    }
 })();
