@@ -524,6 +524,28 @@ body.menu-open { overflow: hidden; }
 }
 .mini a:hover, .link-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
+
+/* « Et aussi » : cartes compactes */
+.small-grid { display: grid; gap: 12px; }
+@media (min-width: 600px) { .small-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .small-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+.small-card {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 20px;
+    border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border);
+    transition: transform .2s ease, border-color .2s ease;
+}
+.small-card:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+.small-card .mini-ic { margin-bottom: 6px; }
+.small-card h4 { font-size: 1.08rem; }
+.small-card p { color: var(--muted); font-size: 0.93rem; }
+.small-card .tags { margin-top: 4px; }
+.card-action {
+    margin-top: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0;
+    color: var(--accent); font-weight: 600; font-size: 0.9rem; text-decoration: none; background: none; border: 0; cursor: pointer;
+}
+.card-action:hover { text-decoration: underline; text-underline-offset: 3px; }
+.small-card .tags + .card-action { margin-top: auto; padding-top: 6px; }
+
 /* --- Parcours --- */
 .parcours-grid { display: grid; gap: 28px; align-items: start; }
 @media (min-width: 900px) { .parcours-grid { grid-template-columns: 1fr 300px; gap: 48px; } }
@@ -891,6 +913,36 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 760px) { .services-grid { grid-template-columns: 1fr 1fr; } }
 .services-grid p { color: var(--muted); }
 .services-grid strong { display: block; color: var(--text); font-family: var(--font-head); font-size: 1.05rem; margin-bottom: 2px; }
+
+
+/* --- Compétences : tuiles logo + nom, groupées par catégorie --- */
+.skill-groups { display: grid; gap: 14px; }
+@media (min-width: 900px) { .skill-groups { grid-template-columns: 1fr 1fr; gap: 18px; } }
+.skill-group { padding: 18px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); }
+.skill-group h3 { display: block; font-size: 0.8rem; font-family: var(--font-mono); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+@media (min-width: 400px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px) { .tiles { grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); } }
+.tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 8px; min-width: 0;
+    padding: 14px 4px 12px; border-radius: 12px; text-align: center;
+    background: var(--surface-2); border: 1px solid var(--border);
+    transition: transform .2s ease, border-color .2s ease;
+}
+.tile:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+.tile svg { width: 30px; height: 30px; flex: none; }
+.tile-line svg { color: var(--accent); stroke-width: 1.7; }
+.tile span { font-size: 0.74rem; font-weight: 500; line-height: 1.25; color: var(--text); overflow-wrap: normal; }
+
+/* --- Services : 3 cartes --- */
+.offer { display: grid; gap: 12px; }
+@media (min-width: 760px) { .offer { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+.offer-card { padding: 22px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--border); transition: transform .2s ease, border-color .2s ease; }
+.offer-card:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+.offer-card .mini-ic { margin-bottom: 14px; }
+.offer-card h4 { font-size: 1.1rem; margin-bottom: 6px; }
+.offer-card p { color: var(--muted); font-size: 0.95rem; }
+.offer-note { margin-top: 16px; color: var(--faint); font-size: 0.9rem; }
 
 /* --- Certifications --- */
 /* Onglets : segment défilable, jamais de retour à la ligne */
