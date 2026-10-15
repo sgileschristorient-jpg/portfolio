@@ -1029,6 +1029,52 @@ body.menu-open { overflow: hidden; }
 .yt-card .btn { width: 100%; margin-top: 6px; }
 @media (min-width: 900px) { .contact { grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: center; } }
 
+
+/* ==========================================================
+   CARTES — fond neutre, fine bordure, trait de couleur en haut
+   Petite palette de catégories (modifiable ici)
+   ========================================================== */
+:root {
+    --c1: 59, 130, 246;   /* bleu */
+    --c2: 6, 182, 212;    /* cyan */
+    --c3: 139, 92, 246;   /* violet */
+    --c4: 245, 158, 11;   /* ambre */
+    --c5: 16, 185, 129;   /* vert */
+}
+.skill-group, .offer-card, .small-card, .project {
+    --c: var(--c1);
+    position: relative; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--border);
+}
+.skill-group::after, .offer-card::after, .small-card::after, .project::after {
+    content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; pointer-events: none;
+    background: rgb(var(--c));
+}
+.skill-group:nth-child(5n+2), .offer-card:nth-child(5n+2), .small-card:nth-child(5n+2), .project:nth-child(4n+2) { --c: var(--c2); }
+.skill-group:nth-child(5n+3), .offer-card:nth-child(5n+3), .small-card:nth-child(5n+3), .project:nth-child(4n+3) { --c: var(--c5); }
+.skill-group:nth-child(5n+4), .small-card:nth-child(5n+4), .project:nth-child(4n+4) { --c: var(--c4); }
+.skill-group:nth-child(5n+5), .small-card:nth-child(5n+5) { --c: var(--c3); }
+.skill-group:nth-child(6) { --c: var(--c1); }
+.skill-group h3 { color: rgb(var(--c)); filter: brightness(1.25); }
+.offer-card .mini-ic, .small-card .mini-ic { background: rgba(var(--c), .14); color: rgb(var(--c)); }
+.tile-line svg { color: rgb(var(--c, 96, 165, 250)); }
+.offer-card:hover, .small-card:hover, .skill-group:hover, .project:hover { border-color: var(--border-strong); }
+
+/* ==========================================================
+   EN-TÊTES DE SECTION — numéro + trait, titre fort, intro
+   ========================================================== */
+.sec-num {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    font-size: 0.85rem; font-weight: 500; color: var(--accent); letter-spacing: .08em;
+}
+.sec-num::after { content: ''; width: 48px; height: 2px; border-radius: 2px; background: var(--brand-1); }
+.section { padding: 80px 0; }
+@media (min-width: 900px) { .section { padding: 120px 0; } }
+.section + .section { border-top: 1px solid var(--border); }
+.section-head h2 { font-size: clamp(2.1rem, 7vw, 3.4rem); }
+.section-intro { max-width: 56ch; }
+@media (min-width: 1024px) { .main-nav a { padding: 8px 10px; font-size: 0.9rem; } }
+
 /* ==========================================================
    ANIMATIONS — volontairement sobres (portfolio professionnel)
    Apparition douce, compteurs, léger survol, transitions du menu et de la visionneuse.
