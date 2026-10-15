@@ -1179,3 +1179,14 @@ body.menu-open { overflow: hidden; }
 }
 
 [hidden] { display: none !important; }
+
+/* QR code WhatsApp affiché directement */
+.qr-thumb { display: block; padding: 8px; border: 1px solid var(--border); border-radius: 14px; background: #fff; cursor: zoom-in; }
+.qr-thumb img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.small-card .qr-thumb { width: 132px; margin-top: 6px; }
+.contact-qr { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+.contact-qr .qr-thumb { width: 120px; flex: none; }
+.contact-qr p { display: flex; flex-direction: column; color: var(--muted); font-size: 0.9rem; }
+.contact-qr strong { color: var(--text); font-size: 1rem; }
+/* Bloc Contact : on neutralise l'ancien style de carte (fond + pleine largeur) */
+.contact .contact-main { grid-column: auto; background: none; border: 0; padding: 0; min-height: 0; }
