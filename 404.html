@@ -2,22 +2,34 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Redirection...</title>
-    <script type="text/javascript">
-        // Redirection intelligente pour GitHub Pages
-        var path = window.location.pathname;
-        var search = window.location.search;
-        var hash = window.location.hash;
-        
-        // On récupère la base du site (ex: /Portfolio/)
-        var basePath = path.split('/pages/')[0];
-        if (basePath === path) { basePath = '/'; } else { basePath += '/'; }
-
-        // On redirige vers l'index.html en passant le faux chemin en paramètre caché
-        var redirectUrl = basePath + '?redirect=' + encodeURIComponent(path + search + hash);
-        window.location.replace(redirectUrl);
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page introuvable — Giles Christ-Orient SALOU</title>
+    <script>
+        // Anciennes URL du site (/portfolio/pages/xxx.html) : renvoi vers la page unique
+        (function () {
+            var path = window.location.pathname;
+            var seg = path.split('/').filter(Boolean);
+            var base = (location.hostname.endsWith('github.io') && seg.length) ? '/' + seg[0] + '/' : '/';
+            if (path.indexOf('/pages/') !== -1) {
+                window.location.replace(base + '?redirect=' + encodeURIComponent(path));
+            } else {
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.getElementById('home').href = base;
+                });
+            }
+        })();
     </script>
+    <style>
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0b0d12; color: #e9ecf2; font-family: system-ui, sans-serif; text-align: center; padding: 16px; }
+        h1 { font-size: 3rem; margin: 0; color: #3ee0a1; }
+        a { display: inline-block; margin-top: 20px; padding: 12px 20px; border-radius: 999px; background: #3ee0a1; color: #062b1c; font-weight: 600; text-decoration: none; }
+    </style>
 </head>
 <body>
+    <main>
+        <h1>404</h1>
+        <p>Cette page n'existe pas (ou plus).</p>
+        <a id="home" href="/portfolio/">Retour au portfolio</a>
+    </main>
 </body>
 </html>

@@ -1,407 +1,619 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <!-- Base URL dynamique pour fixer les chemins d'images avec les fausses URLs /pages/ -->
-    <script>
-        (function() {
-            var path = window.location.pathname;
-            var base = path.split('/pages/')[0];
-            if (base === path) {
-                base = base.replace('index.html', '');
-            }
-            if (!base.endsWith('/')) base += '/';
-            document.write('<base href="' + base + '">');
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giles Christ-Orient SALOU — Portfolio</title>
-    <meta name="description" content="Portfolio de Giles Christ-Orient SALOU — Étudiant L2 Major de Promo, expert Cybersécurité, Réseaux, Développeur Web et Mobile.">
+    <title>Giles Christ-Orient SALOU — Développeur Web Full Stack</title>
+    <meta name="description" content="Portfolio de Giles Christ-Orient SALOU — Développeur Web Full Stack (Angular, Spring Boot), étudiant en Licence 3 Réseaux Informatiques et Télécommunications à l'IST Campus Gounghin. 3 applications en production.">
+    <meta name="theme-color" content="#0b0d12">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Giles Christ-Orient SALOU - Portfolio Cybersécurité & Dev">
-    <meta property="og:description" content="Étudiant L2 Major de Promo. Expert Cybersécurité, Réseaux, Développeur Web et Mobile.">
-    <meta property="og:image" content="https://sgileschristorient-jpg.github.io/Portfolio/images/logo.JPG">
-    <meta property="og:url" content="https://sgileschristorient-jpg.github.io/Portfolio/">
+    <meta property="og:title" content="Giles Christ-Orient SALOU — Développeur Web Full Stack">
+    <meta property="og:description" content="Angular, Spring Boot, Python, réseaux & cybersécurité. 3 applications en production, major de promotion L1 et L2.">
+    <meta property="og:image" content="https://sgileschristorient-jpg.github.io/portfolio/images/thumbs/logo.jpg">
+    <meta property="og:url" content="https://sgileschristorient-jpg.github.io/portfolio/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Local CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap JS (needed for modal) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-
-    <!-- Three.js & GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <link rel="icon" href="images/thumbs/logo.jpg">
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="page-loader">
-        <div class="loader-spinner"></div>
-    </div>
+    <!-- ======= ICÔNES (sprite SVG) ======= -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+            <symbol id="i-ext" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+            <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+            <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+            <symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol>
+            <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+            <symbol id="i-package" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+            <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+            <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6M12 19h8"/></symbol>
+            <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+            <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+            <symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+            <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M16 3.1a4 4 0 0 1 0 7.8M22 21v-1a6 6 0 0 0-4-5.7"/></symbol>
+            <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></symbol>
+            <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
+            <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+            <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></symbol>
+            <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+            <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+            <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM21 14v.01M14 21h.01M17 21h4v-4"/></symbol>
+            <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+            <symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M8.5 10 6 2h4l2 5 2-5h4l-2.5 8"/></symbol>
+            <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+            <!-- Marques (remplies) -->
+            <symbol id="b-github" viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.57v-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .31.21.69.82.57A12 12 0 0 0 12 .3"/></symbol>
+            <symbol id="b-linkedin" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+            <symbol id="b-youtube" viewBox="0 0 24 24"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.87.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></symbol>
+            <symbol id="b-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.16-1.5A9.93 9.93 0 1 0 12.04 2zm0 18.13a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.06.89.9-2.98-.2-.31a8.2 8.2 0 1 1 6.86 3.73zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.17.04-.31-.02-.43l-.75-1.82c-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.86 2.04c0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.2 3.7 1.56.68 2.17.73 2.95.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.28z"/></symbol>
+            <symbol id="b-play" viewBox="0 0 24 24"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l.1.1 9.9-9.9v-.2L3.7 1.7l-.1.1zM16.9 15.7l-3.3-3.3v-.2l3.3-3.3.1.1 3.9 2.2c1.1.6 1.1 1.7 0 2.3l-3.9 2.2h-.1zM17 15.6 13.6 12.2 3.6 22.2c.4.4 1 .4 1.7.1L17 15.6M17 8.8 5.3 2.1c-.7-.4-1.3-.3-1.7.1l10 10L17 8.8z"/></symbol>
+        </defs>
+    </svg>
 
-    <div class="custom-cursor" id="cursor"></div>
-    <div id="canvas-container"></div>
+    <a class="skip-link" href="#main">Aller au contenu</a>
 
-    <!-- ======= NAVIGATION ======= -->
-    <nav id="main-nav">
-        <div class="nav-link active" onclick="showPage('home', this)">
-            <i data-lucide="home" size="18"></i>
-            <span>Nexus</span>
+    <!-- ======= EN-TÊTE ======= -->
+    <header class="site-header" id="top">
+        <div class="wrap header-inner">
+            <a href="#accueil" class="brand" aria-label="Accueil">
+                <span class="brand-mark">GS</span>
+                <span class="brand-text">Christ-Orient<span>.dev</span></span>
+            </a>
+            <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+                <a href="#projets">Projets</a>
+                <a href="#parcours">Parcours</a>
+                <a href="#competences">Compétences</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#cyber">Cybersécurité</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-sm header-yt">
+                <svg class="ic fill"><use href="#b-youtube"/></svg><span>S'abonner</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
+                <svg class="ic"><use href="#i-menu"/></svg>
+            </button>
         </div>
-        <div class="nav-link" onclick="showPage('about', this)">
-            <i data-lucide="user" size="18"></i>
-            <span>À Propos</span>
-        </div>
-        <div class="nav-link" onclick="showPage('services', this)">
-            <i data-lucide="layers" size="18"></i>
-            <span>Services</span>
-        </div>
-        <div class="nav-link" onclick="showPage('projects', this)">
-            <i data-lucide="briefcase" size="18"></i>
-            <span>Projets</span>
-        </div>
-        <div class="nav-link" onclick="showPage('proofs', this)">
-            <i data-lucide="shield-check" size="18"></i>
-            <span>Preuves</span>
-        </div>
-        <div class="nav-link" onclick="showPage('lab', this)">
-            <i data-lucide="terminal" size="18"></i>
-            <span>CyberLab</span>
-        </div>
-    </nav>
+    </header>
 
-    <!-- ======= HOME / HERO ======= -->
-    <section id="home" class="page active hero">
-        <div class="container">
-            <div class="row align-items-center flex-column-reverse flex-lg-row text-center text-lg-start">
+    <main id="main">
 
-                <!-- Text -->
-                <div class="col-lg-7 mt-4 mt-lg-0" style="z-index: 10;">
-                    <div class="hero-text-wrap">
-                        <div class="d-flex justify-content-center justify-content-lg-start flex-wrap gap-2 mb-3"><div class="hero-badge d-inline-flex align-items-center px-3 py-2 rounded-pill m-0"><i data-lucide="zap" size="14" class="me-2"></i>Étudiant en Réseaux &amp; Télécoms</div><div class="hero-badge d-inline-flex align-items-center px-3 py-2 rounded-pill m-0" style="border-color: #27c93f; color: #27c93f; background: rgba(39,201,63,0.08);"><i data-lucide="briefcase" size="14" class="me-2"></i>Ouvert aux opportunités</div></div><h1 class="glitch-text mb-3" style="font-size: clamp(1.8rem, 4vw, 2.8rem);">O. Giles Christ-Orient<span class="d-block mt-2 accent-name">Salou</span></h1>
-                        <p class="lead text-white mb-4 mx-auto mx-lg-0" id="hero-subtitle" style="min-height:3.5em;"></p>
-                        <div class="d-flex justify-content-center justify-content-lg-start gap-3 flex-wrap mt-4">
-                            <a href="mailto:sgileschristorient@gmail.com" class="btn-hero btn-contact">
-                                <i data-lucide="mail" size="18"></i> Me Contacter
-                            </a>
-                            <a href="https://wa.me/57222160" target="_blank" rel="noopener" class="btn-hero btn-wa">
-                                <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> WhatsApp
-                            </a>
-                            <a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" class="btn-hero-icon">
-                                <i class="fab fa-github" style="font-size:1.2rem;"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" class="btn-hero-icon linkedin">
-                                <i class="fab fa-linkedin-in" style="font-size:1.2rem;"></i>
-                            </a>
-                            <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn-hero-icon youtube">
-                                <i class="fab fa-youtube" style="font-size:1.2rem;"></i>
-                            </a>
-                            <a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" class="btn-hero-icon tryhackme">
-                                <i class="fas fa-terminal" style="font-size:1.1rem;"></i>
-                            </a>
+        <!-- ======= ACCUEIL ======= -->
+        <section id="accueil" class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-text">
+                    <p class="status-pill"><span class="dot"></span>Ouvert aux opportunités</p>
+                    <h1>
+                        <span class="hero-first">Ouindpouiéré</span>
+                        Giles Christ-Orient <span class="accent">SALOU</span>
+                    </h1>
+                    <p class="hero-role">Développeur Web Full Stack <span class="mono">Angular · Spring Boot</span></p>
+                    <p class="hero-lead">
+                        Étudiant en <strong>Licence 3 Réseaux Informatiques et Télécommunications</strong> à l'IST Campus Gounghin
+                        (2026-2027). Je conçois des applications web et mobiles utilisées au quotidien, avec une solide culture
+                        réseau et cybersécurité.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projets" class="btn btn-primary">Voir mes projets <svg class="ic"><use href="#i-arrow"/></svg></a>
+                        <a href="mailto:sgileschristorient@gmail.com" class="btn btn-ghost"><svg class="ic"><use href="#i-mail"/></svg> Me contacter</a>
+                    </div>
+                    <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-lg hero-yt">
+                        <svg class="ic fill"><use href="#b-youtube"/></svg> S'abonner à ma chaîne YouTube
+                    </a>
+                    <ul class="socials" aria-label="Réseaux">
+                        <li><a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic fill"><use href="#b-github"/></svg></a></li>
+                        <li><a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic fill"><use href="#b-linkedin"/></svg></a></li>
+                        <li><a href="https://wa.me/57222160" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic fill"><use href="#b-whatsapp"/></svg></a></li>
+                        <li><a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" aria-label="TryHackMe"><svg class="ic"><use href="#i-terminal"/></svg></a></li>
+                    </ul>
+                </div>
+
+                <div class="hero-photo">
+                    <button class="photo-frame" type="button" data-zoom="images/logo.JPG" data-title="Giles Christ-Orient SALOU" aria-label="Agrandir la photo">
+                        <img src="images/thumbs/logo.jpg" alt="Portrait de Giles Christ-Orient SALOU" width="640" height="695" fetchpriority="high">
+                    </button>
+                    <div class="photo-tag mono"><svg class="ic"><use href="#i-pin"/></svg> IST Campus Gounghin</div>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <ul class="kpis">
+                    <li class="kpi">
+                        <span class="kpi-num">3</span>
+                        <span class="kpi-lbl">applications en production</span>
+                        <span class="kpi-sub">LADIASS · DevisPro · StockManagerPro</span>
+                    </li>
+                    <li class="kpi">
+                        <span class="kpi-num">100+</span>
+                        <span class="kpi-lbl">téléchargements · note 5,0/5</span>
+                        <span class="kpi-sub">DevisPro sur Google Play</span>
+                    </li>
+                    <li class="kpi">
+                        <span class="kpi-num">#1</span>
+                        <span class="kpi-lbl">major de promotion</span>
+                        <span class="kpi-sub">en L1 et en L2 · IST Gounghin</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ======= PROJETS ======= -->
+        <section id="projets" class="section">
+            <div class="wrap">
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">01 — Projets</p>
+                    <h2>Des applications utilisées pour de vrai</h2>
+                    <p class="section-intro">Développement web full stack, applications mobiles, logiciels Python sur mesure et projets collaboratifs.</p>
+                </header>
+
+                <div class="projects-featured">
+                    <!-- LADIASS -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="project-icon"><svg class="ic"><use href="#i-shield"/></svg></span>
+                            <span class="badge badge-live">En production</span>
                         </div>
+                        <h3>LADIASS</h3>
+                        <p>Application web de gestion des bons d'assurance santé. Projet final de la formation Développeur Web Full Stack à l'Orange Digital Center, déployé en ligne.</p>
+                        <ul class="tags"><li>Angular</li><li>TypeScript</li><li>Spring Boot</li><li>API REST</li><li>Render</li></ul>
+                        <div class="project-links">
+                            <a href="https://ladiass-frontend.onrender.com/login" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Voir en ligne <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- DevisPro -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="project-icon"><svg class="ic"><use href="#i-phone"/></svg></span>
+                            <span class="badge badge-live">Google Play</span>
+                        </div>
+                        <h3>DevisPro</h3>
+                        <p>Application Android de devis et factures, <strong>100 % hors ligne</strong>. Publiée sur Google Play depuis mai 2026 et vendue par abonnement.</p>
+                        <p class="project-metric"><span class="stars" aria-hidden="true">★★★★★</span> <strong>5,0/5</strong> · 100+ téléchargements</p>
+                        <ul class="tags"><li>Android</li><li>Flutter &amp; Dart</li><li>Hors ligne</li><li>Abonnement</li></ul>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.devispro.facture" target="_blank" rel="noopener" class="btn btn-primary btn-sm"><svg class="ic fill"><use href="#b-play"/></svg> Google Play</a>
+                            <a href="https://sgileschristorient-jpg.github.io/DevisPro-Facture/index.html" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Site vitrine <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+
+                    <!-- StockManagerPro -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="project-icon"><svg class="ic"><use href="#i-package"/></svg></span>
+                            <span class="badge badge-live">Utilisé chaque jour</span>
+                        </div>
+                        <h3>StockManagerPro</h3>
+                        <p>Logiciel de gestion de stock hors ligne en Python, utilisé chaque jour par un restaurant depuis juin 2026. Contrôle précis des inventaires et intégrité des données.</p>
+                        <ul class="tags"><li>Python</li><li>Hors ligne</li><li>Logiciel sur mesure</li></ul>
+                        <div class="project-links">
+                            <span class="note mono">Logiciel client · non public</span>
+                        </div>
+                    </article>
+
+                    <!-- Club Informatique -->
+                    <article class="project reveal">
+                        <div class="project-top">
+                            <span class="project-icon"><svg class="ic"><use href="#i-users"/></svg></span>
+                            <span class="badge">Projet collaboratif</span>
+                        </div>
+                        <h3>Club Informatique de l'IST</h3>
+                        <p>Co-développement du site du Club Informatique et de la plateforme de réservation de la Masterclass TerreTech.</p>
+                        <ul class="tags"><li>Web</li><li>Travail en équipe</li><li>Railway</li></ul>
+                        <div class="project-links">
+                            <a href="https://istclubinformatique.up.railway.app/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Site du club <svg class="ic"><use href="#i-ext"/></svg></a>
+                            <a href="https://masterclassterretech-ist-ci.up.railway.app/" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Masterclass TerreTech <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+
+                <h3 class="sub-title reveal">Autres réalisations</h3>
+                <div class="projects-mini">
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-globe"/></svg>
+                        <div>
+                            <h4>Boutique e-commerce</h4>
+                            <p>Simulation d'interface e-commerce avec un catalogue de produits fluide.</p>
+                            <a href="https://sgileschristorient-jpg.github.io/mon-site-vitrine/" target="_blank" rel="noopener">Visiter le site <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-spark"/></svg>
+                        <div>
+                            <h4>Vitrine amusante (Naruto)</h4>
+                            <p>Site vitrine au design original et animé sur le thème de Naruto.</p>
+                            <a href="https://github.com/sgileschristorient-jpg/Portfolio-Github-Design" target="_blank" rel="noopener">Voir le code <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-server"/></svg>
+                        <div>
+                            <h4>Labs cybersécurité (VirtualBox)</h4>
+                            <p>Environnements de test locaux pour le pentest, le durcissement et la simulation d'attaques.</p>
+                        </div>
+                    </article>
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-terminal"/></svg>
+                        <div>
+                            <h4>Scripts Python</h4>
+                            <p>Scripts d'automatisation et de calcul de données.</p>
+                            <a href="scripts/calcul.py" download>Télécharger le script <svg class="ic"><use href="#i-download"/></svg></a>
+                        </div>
+                    </article>
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-qr"/></svg>
+                        <div>
+                            <h4>QR codes professionnels</h4>
+                            <p>Codes QR personnalisés avec intégration de logo.</p>
+                            <button type="button" class="link-btn" data-zoom="qrcodes/whatsapp.png" data-title="Modèle de QR code professionnel">Voir le modèle <svg class="ic"><use href="#i-eye"/></svg></button>
+                        </div>
+                    </article>
+                    <article class="mini reveal">
+                        <svg class="ic"><use href="#i-code"/></svg>
+                        <div>
+                            <h4>Ce portfolio</h4>
+                            <p>Site statique rapide, responsive, hébergé sur GitHub Pages.</p>
+                            <a href="https://github.com/sgileschristorient-jpg/portfolio" target="_blank" rel="noopener">Code source <svg class="ic"><use href="#i-ext"/></svg></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= PARCOURS ======= -->
+        <section id="parcours" class="section section-alt">
+            <div class="wrap">
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">02 — Parcours</p>
+                    <h2>Formation &amp; étapes clés</h2>
+                </header>
+
+                <div class="parcours-grid">
+                    <ol class="timeline">
+                        <li class="reveal">
+                            <span class="tl-date mono">2026 — 2027</span>
+                            <h3>Licence 3 Réseaux Informatiques et Télécommunications</h3>
+                            <p>IST Campus Gounghin · soutenance en 2027. <strong>Major de promotion en L1 et en L2.</strong></p>
+                            <span class="badge badge-live">En cours</span>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Juin — sept. 2026</span>
+                            <h3>Développeur Web Full Stack (Angular, Spring Boot)</h3>
+                            <p>Orange Digital Center · formation intensive de 3 mois. Projet final <strong>LADIASS</strong> déployé en ligne.</p>
+                            <span class="badge">Terminée</span>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Juin 2026</span>
+                            <h3>StockManagerPro en service</h3>
+                            <p>Logiciel Python hors ligne utilisé chaque jour par un restaurant.</p>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Mai 2026</span>
+                            <h3>DevisPro publiée sur Google Play</h3>
+                            <p>Application de devis et factures : 100+ téléchargements, note 5,0/5.</p>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Janvier 2026</span>
+                            <h3>Attestation de major de promotion — L1</h3>
+                            <p>IST Gounghin · Réseaux &amp; Télécoms.</p>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Décembre 2025</span>
+                            <h3>Programme JA Social Equity · Portfolio en ligne</h3>
+                            <p>Programme suivi chaque dimanche pendant un mois (certificat de participation). Création de ce portfolio.</p>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Octobre 2025</span>
+                            <h3>Certification Cybersécurité — Cisco</h3>
+                            <p>Certificat et badge délivrés par la Cisco Networking Academy.</p>
+                        </li>
+                        <li class="reveal">
+                            <span class="tl-date mono">Juin 2025</span>
+                            <h3>Formation Hacking Éthique</h3>
+                            <p>Formation intensive de 3 jours sur les techniques offensives et défensives.</p>
+                        </li>
+                    </ol>
+
+                    <aside class="side-card reveal">
+                        <svg class="ic side-ic"><use href="#i-cap"/></svg>
+                        <h3>Je transmets aussi</h3>
+                        <p>J'accompagne et je forme à la création de sites web et d'applications mobiles, avec une approche centrée sur la pratique.</p>
+                        <span class="badge badge-live">Disponible</span>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= COMPÉTENCES ======= -->
+        <section id="competences" class="section">
+            <div class="wrap">
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">03 — Compétences</p>
+                    <h2>Stack technique</h2>
+                </header>
+
+                <div class="skills">
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-code"/></svg> Front-end</h3>
+                        <ul class="tags"><li>Angular</li><li>TypeScript</li><li>HTML5 / CSS3</li><li>JavaScript</li><li>Bootstrap 5</li></ul>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-server"/></svg> Back-end</h3>
+                        <ul class="tags"><li>Java</li><li>Spring Boot</li><li>API REST</li><li>PHP</li><li>MySQL</li></ul>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-phone"/></svg> Mobile &amp; logiciel</h3>
+                        <ul class="tags"><li>Flutter &amp; Dart</li><li>Python</li><li>C</li></ul>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-layers"/></svg> DevOps &amp; outils</h3>
+                        <ul class="tags"><li>Docker</li><li>Git / GitHub</li><li>Render</li><li>Railway</li><li>GitHub Pages</li></ul>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-globe"/></svg> Réseaux &amp; systèmes</h3>
+                        <ul class="tags"><li>TCP/IP</li><li>Windows Server 2019</li><li>Linux</li><li>DHCP Kea (Debian)</li><li>Cisco NetAcad</li></ul>
+                    </div>
+                    <div class="skill-group reveal">
+                        <h3><svg class="ic"><use href="#i-shield"/></svg> Cybersécurité</h3>
+                        <ul class="tags"><li>TryHackMe</li><li>Labs VirtualBox</li><li>Kali Linux</li><li>Metasploitable</li><li>Hacking éthique</li></ul>
                     </div>
                 </div>
 
-                <!-- Profile Image -->
-                <div class="col-lg-5">
-                    <div class="hero-visual-wrap d-flex justify-content-center">
-                        <div class="profile-wrap hero-main-profile">
-                            <div class="profile-glow"></div>
-                            <div class="orbit-ring"></div>
-                            <div class="orbit-ring-2"></div>
-                            <div class="particle p1"></div>
-                            <div class="particle p2"></div>
-                            <img src="images/logo.JPG" alt="Giles Christ-Orient SALOU" class="profile-img" loading="eager">
+                <h3 class="sub-title reveal">Ce que je propose</h3>
+                <div class="services">
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-code"/></svg>
+                        <h4>Développement web</h4>
+                        <p>Applications Angular + Spring Boot, sites vitrines responsives, HTML5 / CSS3 / JavaScript, backend PHP et sécurité SQL.</p>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-cog"/></svg>
+                        <h4>Maintenance</h4>
+                        <p>Optimisation et performance, nettoyage virus et malware, diagnostic logiciel et matériel.</p>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-shield"/></svg>
+                        <h4>Cybersécurité</h4>
+                        <p>Durcissement Windows / Linux, sécurisation des comptes, audits et sensibilisation.</p>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-headset"/></svg>
+                        <h4>Support &amp; suivi</h4>
+                        <p>Assistance à distance, support récurrent et conseil technique.</p>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-file"/></svg>
+                        <h4>Bureautique</h4>
+                        <p>Structuration Word, design PowerPoint, rédaction de contenus tech, formation Word &amp; PowerPoint, outils collaboratifs, QR codes pro.</p>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="ic"><use href="#i-spark"/></svg>
+                        <h4>Ma façon de travailler</h4>
+                        <p>Confidentialité stricte, réactivité, pédagogie avec le client.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CERTIFICATIONS ======= -->
+        <section id="certifications" class="section section-alt">
+            <div class="wrap">
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">04 — Certifications</p>
+                    <h2>Diplômes &amp; certifications</h2>
+                    <p class="section-intro">Cliquez sur une image pour l'agrandir.</p>
+                </header>
+
+                <div class="certs">
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/major.jpg" data-title="Major de promotion — L1 Réseaux &amp; Télécoms">
+                            <img src="images/thumbs/major.jpg" alt="Attestation de major de promotion L1" loading="lazy" width="720" height="509">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Distinction</span><strong>Major de promotion — L1</strong><span>IST Gounghin · Réseaux &amp; Télécoms (également major en L2)</span></figcaption>
+                    </figure>
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/cisco.jpg" data-title="Certificat Cybersécurité — Cisco Networking Academy">
+                            <img src="images/thumbs/cisco.jpg" alt="Certificat Cisco Cybersécurité" loading="lazy" width="720" height="556">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Cisco</span><strong>Cybersécurité — Cisco NetAcad</strong><span>Cisco Networking Academy · octobre 2025</span></figcaption>
+                    </figure>
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/file_managment_for_devops_coursera.png" data-title="Linux for DevOps — Coursera">
+                            <img src="images/thumbs/file_managment_for_devops_coursera.jpg" alt="Certificat Coursera Linux for DevOps" loading="lazy" width="720" height="377">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Coursera</span><strong>Linux for DevOps</strong><span>Coursera · juillet 2026</span></figcaption>
+                    </figure>
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/introduction_html_coursera.png" data-title="Introduction to HTML5 — Coursera">
+                            <img src="images/thumbs/introduction_html_coursera.jpg" alt="Certificat Coursera Introduction to HTML5" loading="lazy" width="720" height="377">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Coursera</span><strong>Introduction to HTML5</strong><span>Coursera · développement web</span></figcaption>
+                    </figure>
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/leader.png" data-title="Leadership &amp; Management — JA Social Equity">
+                            <img src="images/thumbs/leader.jpg" alt="Certificat Leadership et Management" loading="lazy" width="720" height="509">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Certificat</span><strong>Leadership &amp; Management</strong><span>Programme JA Social Equity · décembre 2025</span></figcaption>
+                    </figure>
+                    <figure class="cert reveal">
+                        <button type="button" class="cert-img" data-zoom="Certificats/base_exel.png" data-title="Bases de Excel">
+                            <img src="images/thumbs/base_exel.jpg" alt="Certificat Bases de Excel" loading="lazy" width="720" height="557">
+                            <span class="zoom-hint"><svg class="ic"><use href="#i-zoom"/></svg></span>
+                        </button>
+                        <figcaption><span class="cert-kind">Certificat</span><strong>Bases de Excel</strong><span>Certificat d'achèvement</span></figcaption>
+                    </figure>
+                    <figure class="cert cert-pending reveal">
+                        <div class="cert-img cert-placeholder"><svg class="ic"><use href="#i-clock"/></svg><span>Attestation à venir</span></div>
+                        <figcaption><span class="cert-kind">En attente</span><strong>Formation Linux (3 jours)</strong><span>Formation intensive Linux</span></figcaption>
+                    </figure>
+                    <figure class="cert cert-pending reveal">
+                        <div class="cert-img cert-placeholder"><svg class="ic bronze"><use href="#i-medal"/></svg><span>Attestation à venir</span></div>
+                        <figcaption><span class="cert-kind">Sport</span><strong>Vovinam Viet Vo Dao — médaille de bronze</strong><span>Compétition d'arts martiaux</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======= CYBERSÉCURITÉ ======= -->
+        <section id="cyber" class="section">
+            <div class="wrap">
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">05 — Cybersécurité</p>
+                    <h2>TryHackMe &amp; CyberLab</h2>
+                    <p class="section-intro">Pratique régulière sur TryHackMe et dans mes labs VirtualBox.</p>
+                </header>
+
+                <div class="thm-head reveal">
+                    <div>
+                        <h3>Badges TryHackMe</h3>
+                        <p>Profil actif · <span class="mono">sgileschristorient</span></p>
+                    </div>
+                    <a href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Voir tous les badges <svg class="ic"><use href="#i-ext"/></svg></a>
+                </div>
+                <div class="badges">
+                    <button type="button" class="thm reveal" data-zoom="Certificats/badeges_30jours.png" data-title="30 Day Streak">
+                        <img src="images/thumbs/badeges_30jours.png" alt="Badge 30 Day Streak" loading="lazy" width="320" height="165">
+                        <span><strong>30 Day Streak</strong>30 jours de hacking consécutifs</span>
+                    </button>
+                    <button type="button" class="thm reveal" data-zoom="Certificats/badges_3jours.png" data-title="7 Day Streak">
+                        <img src="images/thumbs/badges_3jours.png" alt="Badge 7 Day Streak" loading="lazy" width="320" height="165">
+                        <span><strong>7 Day Streak</strong>7 jours de hacking consécutifs</span>
+                    </button>
+                    <button type="button" class="thm reveal" data-zoom="Certificats/First_four.png" data-title="First Four">
+                        <img src="images/thumbs/First_four.png" alt="Badge First Four" loading="lazy" width="320" height="165">
+                        <span><strong>First Four</strong>4 rooms terminées la première semaine</span>
+                    </button>
+                    <button type="button" class="thm reveal" data-zoom="Certificats/Hack2win2025.png" data-title="Raffle Royalty — Hack2Win 2025">
+                        <img src="images/thumbs/Hack2win2025.png" alt="Badge Hack2Win 2025" loading="lazy" width="320" height="165">
+                        <span><strong>Raffle Royalty</strong>Participation Hack2Win 2025</span>
+                    </button>
+                    <button type="button" class="thm reveal" data-zoom="Certificats/bases_en_linux.png" data-title="cat linux.txt — compétences Linux">
+                        <img src="images/thumbs/bases_en_linux.png" alt="Badge cat linux.txt" loading="lazy" width="320" height="165">
+                        <span><strong>cat linux.txt</strong>Compétences Linux validées</span>
+                    </button>
+                    <button type="button" class="thm reveal" data-zoom="Certificats/comprehension_du_web.png" data-title="Webbed — World Wide Web">
+                        <img src="images/thumbs/comprehension_du_web.png" alt="Badge Webbed" loading="lazy" width="320" height="165">
+                        <span><strong>Webbed</strong>Compréhension du World Wide Web</span>
+                    </button>
+                </div>
+
+                <!-- CyberLab -->
+                <div class="terminal reveal" id="lab">
+                    <div class="terminal-bar">
+                        <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+                        <span class="mono terminal-title">security_scanner --target <span id="targetDisplay">none</span></span>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="lab-intro">CyberLab — analyse heuristique simplifiée d'une URL (DNS, HTTPS, motifs de phishing). Démonstration pédagogique.</p>
+                        <form class="scan-form" onsubmit="event.preventDefault(); runScanner();">
+                            <span class="mono prompt">$</span>
+                            <input type="text" id="urlInput" placeholder="Entrez une URL (ex : google.com)" autocomplete="off" aria-label="URL à analyser">
+                            <button type="submit" class="btn btn-primary btn-sm" id="scanBtn">Lancer l'analyse</button>
+                        </form>
+                        <div class="scanner">
+                            <div>
+                                <div class="metrics">
+                                    <div class="metric-card" id="card-ssl"><span class="metric-label">Chiffrement SSL</span><span class="metric-value" id="val-ssl">---</span></div>
+                                    <div class="metric-card" id="card-headers"><span class="metric-label">Entêtes HTTP</span><span class="metric-value" id="val-headers">---</span></div>
+                                    <div class="metric-card" id="card-dns"><span class="metric-label">Sécurité DNS</span><span class="metric-value" id="val-dns">---</span></div>
+                                    <div class="metric-card" id="card-rep"><span class="metric-label">Réputation</span><span class="metric-value" id="val-rep">---</span></div>
+                                </div>
+                                <div class="scan-logs mono" id="results">
+                                    <div class="log-entry log-info">[SYSTÈME] Prêt pour l'analyse. Veuillez entrer une URL cible.</div>
+                                </div>
+                            </div>
+                            <div class="score-box">
+                                <div class="radar" id="radar">
+                                    <div class="radar-sweep"></div>
+                                    <div class="radar-score"><span class="metric-label">Score sécurité</span><span class="score-big" id="riskScore">00</span></div>
+                                </div>
+                                <div class="badge" id="threatLevel">STATUT : EN ATTENTE</div>
+                                <div class="mono ip" id="ipDisplay">IP: ---.---.---.---</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ======= ABOUT ======= -->
-    <div id="about-container"></div>
-
-    <!-- ======= SERVICES ======= -->
-    <div id="services-container"></div>
-
-    <!-- ======= PROJECTS ======= -->
-    <div id="projects-container"></div>
-
-    <!-- ======= PREUVES ======= -->
-    <div id="proofs-container"></div>
-
-    <!-- ======= CYBERLAB ======= -->
-    <div id="lab-container"></div>
-
-    <!-- ======= MODAL ======= -->
-    <div class="modal fade" id="certModal" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title" id="mTitle"></h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        <!-- ======= CONTACT ======= -->
+        <section id="contact" class="section section-alt">
+            <div class="wrap">
+                <div class="yt-band reveal">
+                    <svg class="ic fill yt-logo"><use href="#b-youtube"/></svg>
+                    <div>
+                        <h2>Suivez-moi sur YouTube</h2>
+                        <p>Abonnez-vous pour ne rien manquer de mes prochaines vidéos.</p>
+                    </div>
+                    <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-lg">S'abonner à ma chaîne YouTube</a>
                 </div>
-                <div class="modal-body text-center p-0">
-                    <img src="" id="mImg" class="img-fluid rounded-bottom" alt="Certificat">
+
+                <header class="section-head reveal">
+                    <p class="eyebrow mono">06 — Contact</p>
+                    <h2>Travaillons ensemble</h2>
+                    <p class="section-intro">Un projet web ou mobile, une opportunité ? Écrivez-moi.</p>
+                </header>
+
+                <div class="contact-grid">
+                    <a class="contact-card reveal" href="mailto:sgileschristorient@gmail.com">
+                        <svg class="ic"><use href="#i-mail"/></svg>
+                        <span><strong>E-mail</strong>sgileschristorient@gmail.com</span>
+                    </a>
+                    <a class="contact-card reveal" href="https://wa.me/57222160" target="_blank" rel="noopener">
+                        <svg class="ic fill"><use href="#b-whatsapp"/></svg>
+                        <span><strong>WhatsApp</strong>Écrivez-moi directement</span>
+                    </a>
+                    <a class="contact-card reveal" href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener">
+                        <svg class="ic fill"><use href="#b-linkedin"/></svg>
+                        <span><strong>LinkedIn</strong>Giles Christ-Orient SALOU</span>
+                    </a>
+                    <a class="contact-card reveal" href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener">
+                        <svg class="ic fill"><use href="#b-github"/></svg>
+                        <span><strong>GitHub</strong>sgileschristorient-jpg</span>
+                    </a>
+                    <a class="contact-card reveal" href="https://tryhackme.com/p/sgileschristorient?tab=badges" target="_blank" rel="noopener">
+                        <svg class="ic"><use href="#i-terminal"/></svg>
+                        <span><strong>TryHackMe</strong>sgileschristorient</span>
+                    </a>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap footer-inner">
+            <p>© <span id="year">2026</span> Giles Christ-Orient SALOU · Développeur Web Full Stack</p>
+            <a href="#accueil" class="mono">Haut de page ↑</a>
         </div>
-    </div>
+    </footer>
 
-    <!-- ======= SCRIPTS ======= -->
-    <script>
-        /* --- 3D DATA SPHERE ENGINE --- */
-        let scene, camera, renderer, particles, sphere;
+    <!-- ======= VISIONNEUSE D'IMAGES ======= -->
+    <dialog id="viewer" aria-labelledby="viewer-title">
+        <div class="viewer-head">
+            <p id="viewer-title"></p>
+            <button type="button" class="viewer-close" aria-label="Fermer"><svg class="ic"><use href="#i-x"/></svg></button>
+        </div>
+        <img id="viewer-img" src="data:," alt="">
+    </dialog>
 
-        function init3D() {
-            if (window.innerWidth < 768) return; // skip on mobile for perf
-            if (typeof THREE === 'undefined') return;
-
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-            const geometry = new THREE.SphereGeometry(25, 32, 32);
-            const material = new THREE.PointsMaterial({
-                color: 0x00f2ff,
-                size: 0.2,
-                transparent: true,
-                opacity: 0.5
-            });
-            particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            const wireGeo = new THREE.SphereGeometry(24, 15, 15);
-            const wireMat = new THREE.MeshBasicMaterial({ color: 0x00f2ff, wireframe: true, transparent: true, opacity: 0.05 });
-            sphere = new THREE.Mesh(wireGeo, wireMat);
-            scene.add(sphere);
-
-            camera.position.z = 60;
-            animate();
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            particles.rotation.y += 0.002;
-            particles.rotation.x += 0.001;
-            sphere.rotation.y -= 0.001;
-            renderer.render(scene, camera);
-        }
-
-        /* --- UI LOGIC --- */
-        var VALID_PAGES = ['home', 'about', 'services', 'projects', 'proofs', 'lab'];
-
-        // 1. Gérer la redirection transparente venant du fichier 404.html
-        (function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var redirect = urlParams.get('redirect');
-            if (redirect) {
-                window.history.replaceState(null, null, redirect);
-            }
-        })();
-
-        // 2. Détecter sur quelle page on se trouve
-        function getCurrentPage() {
-            var path = window.location.pathname;
-            var match = path.match(/\/pages\/(.+)\.html$/);
-            if (match && VALID_PAGES.includes(match[1])) {
-                return match[1];
-            }
-            var hash = window.location.hash.replace('#', '').trim();
-            return VALID_PAGES.includes(hash) ? hash : 'home';
-        }
-
-        function showPage(id, el, pushState) {
-            if (pushState === undefined) pushState = true;
-            if (!VALID_PAGES.includes(id)) id = 'home';
-            document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
-            document.querySelectorAll('.nav-link').forEach(function(l) { l.classList.remove('active'); });
-
-            var target = document.getElementById(id);
-            if (target) target.classList.add('active');
-
-            if (el) {
-                el.classList.add('active');
-            } else {
-                var navEl = document.querySelector('.nav-link[onclick*=' + id + ']');
-                if (navEl) navEl.classList.add('active');
-            }
-
-            window.scrollTo(0, 0);
-
-            /* Update URL sans recharger (format propre) */
-            if (pushState) {
-                var basePath = window.location.pathname;
-                if (basePath.includes('/pages/')) {
-                    basePath = basePath.split('/pages/')[0];
-                } else if (basePath.endsWith('index.html')) {
-                    basePath = basePath.replace('index.html', '');
-                }
-                if (!basePath.endsWith('/')) basePath += '/';
-
-                var urlPath = (id === 'home') ? basePath : basePath + 'pages/' + id + '.html';
-                history.pushState({ page: id }, '', urlPath);
-            }
-
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo('#' + id + ' .service-card, #' + id + ' .proof-card, #' + id + ' .project-card, #' + id + ' .achievement-card, #' + id + ' .thm-badge-card',
-                    { y: 40, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.5, stagger: 0.07, ease: 'power3.out', clearProps: 'all' }
-                );
-            }
-        }
-
-        /* Handle browser back/forward buttons */
-        window.addEventListener('popstate', function(e) {
-            var id = (e.state && e.state.page) ? e.state.page : getCurrentPage();
-            showPage(id, null, false);
-        });
-
-        function openCert(src, title) {
-            document.getElementById('mImg').src = src;
-            document.getElementById('mTitle').innerText = title;
-            new bootstrap.Modal(document.getElementById('certModal')).show();
-        }
-
-        /* --- Custom Cursor (desktop only) --- */
-        if (window.innerWidth > 768) {
-            const cursor = document.getElementById('cursor');
-            window.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-            });
-        }
-
-        /* --- TYPEWRITER ENGINE --- */
-        function typeWriter(el, text, speed, callback) {
-            el.textContent = '';
-            el.style.borderRight = '2px solid var(--accent)';
-            el.style.display = 'inline';
-            var i = 0;
-            function tick() {
-                if (i < text.length) {
-                    el.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(tick, speed + Math.random() * 30);
-                } else {
-                    // blink then remove cursor
-                    setTimeout(function() {
-                        el.style.animation = 'cursor-blink 0.7s step-end 4';
-                        setTimeout(function() {
-                            el.style.borderRight = 'none';
-                            el.style.animation = '';
-                            if (callback) callback();
-                        }, 2800);
-                    }, 200);
-                }
-            }
-            tick();
-        }
-
-        /* --- INIT --- */
-        window.addEventListener('load', function() {
-            // Cacher le preloader avec fluidité
-            setTimeout(function() {
-                var loader = document.getElementById('page-loader');
-                if (loader) loader.classList.add('hidden');
-            }, 400);
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-            init3D();
-
-            /* Charge la bonne page au démarrage */
-            var startPage = getCurrentPage();
-            if (startPage !== 'home') {
-                showPage(startPage, null, false);
-            } else {
-                history.replaceState({ page: 'home' }, '', window.location.pathname);
-            }
-
-            if (typeof gsap !== 'undefined') {
-                gsap.from('.glitch-text', { duration: 1.2, y: 80, opacity: 0, ease: 'power4.out' });
-                gsap.from('.hero-badge', { duration: 0.8, y: -20, opacity: 0, ease: 'power3.out', delay: 0.3 });
-            }
-
-            /* --- Typewriter on subtitle after short delay --- */
-            var subtitleEl = document.getElementById('hero-subtitle');
-            if (subtitleEl) {
-                var subtitleText = "Ingénieur de formation (L2 IST Gounghin). Je construis des infrastructures résilientes et des solutions web de haute sécurité.";
-                setTimeout(function() {
-                    typeWriter(subtitleEl, subtitleText, 28, null);
-                }, 700);
-            }
-        });
-
-        window.addEventListener('resize', () => {
-            if (renderer) {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-        });
-    </script>
-    <script src="scripts/scanner.js"></script>
-
-    <!-- Script d'inclusion des composants -->
-    <script>
-        async function loadComponent(id, file) {
-            try {
-                const response = await fetch('components/' + file);
-                if (response.ok) {
-                    const html = await response.text();
-                    document.getElementById(id).innerHTML = html;
-                }
-            } catch (error) {
-                console.error('Erreur de chargement pour ' + file, error);
-            }
-        }
-        async function initApp() {
-            await Promise.all([
-                loadComponent('about-container', 'about.html'),
-                loadComponent('services-container', 'services.html'),
-                loadComponent('projects-container', 'projects.html'),
-                loadComponent('proofs-container', 'proofs.html'),
-                loadComponent('lab-container', 'lab.html')
-            ]);
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
-        }
-        document.addEventListener('DOMContentLoaded', initApp);
-    </script>
+    <script src="scripts/main.js" defer></script>
+    <script src="scripts/scanner.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
