@@ -411,7 +411,7 @@ body.menu-open { overflow: hidden; }
     .hero-role { font-size: 1.25rem; }
     .hero-role span { display: inline; margin: 0; font-size: 1em; }
     .hero-role span::before { content: "· "; color: var(--faint); }
-    .hero-photo { order: 2; align-self: start; margin-top: 8px; }
+    .hero-photo { order: 2; }
     .hero h1 { font-size: clamp(2.6rem, 4.3vw, 3.6rem); }
     .photo-stage { --photo: 250px; --r-out: 178px; --r-in: 148px; --orb: 42px; }
     .photo-frame { border-width: 3px; box-shadow: 0 0 0 10px rgba(var(--brand-rgb), .08), 0 30px 80px -20px rgba(var(--brand-rgb), .5); }
