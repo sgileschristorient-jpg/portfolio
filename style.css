@@ -389,7 +389,7 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 559px) {
     .hero { padding: 4px 0 32px; }
     .hero-grid { gap: 6px; }
-    .photo-stage { --photo: clamp(128px, 38vw, 150px); --r-out: calc(var(--photo) / 2 + 26px); --orb: 32px; }
+    .photo-stage { --photo: clamp(210px, 60vw, 240px); --r-out: calc(var(--photo) / 2 + 20px); --orb: 32px; }
     .hero-status { font-size: 0.8rem; padding: 6px 12px; margin-bottom: 10px; }
     .hero h1 { font-size: clamp(1.75rem, 8vw, 2.1rem); }
     .hero-role { margin-top: 8px; font-size: 0.98rem; }
@@ -404,12 +404,12 @@ body.menu-open { overflow: hidden; }
 /* Petits écrans en hauteur (ex. 360x640) : on resserre encore */
 @media (max-width: 559px) and (max-height: 720px) {
     .hero { padding-top: 0; }
-    .photo-stage { --photo: 108px; --r-out: calc(var(--photo) / 2 + 20px); --orb: 28px; }
+    .photo-stage { --photo: clamp(206px, 58vw, 226px); --r-out: calc(var(--photo) / 2 + 16px); --orb: 28px; }
     .hero-status { font-size: 0.74rem; padding: 5px 10px; margin-bottom: 6px; }
     .hero h1 { font-size: 1.7rem; line-height: 1.02; }
     .hero-role { margin-top: 6px; font-size: 0.9rem; }
-    .hero-hook { margin-top: 8px; font-size: 1rem; line-height: 1.22; }
-    .hero-lead { margin-top: 6px; font-size: 0.84rem; line-height: 1.45; }
+    .hero-hook { margin-top: 6px; font-size: 0.96rem; line-height: 1.2; }
+    .hero-lead { margin-top: 6px; font-size: 0.8rem; line-height: 1.4; }
     .hero-cta { margin-top: 12px; }
     .hero-cta .btn { min-height: 44px; padding-top: 8px; padding-bottom: 8px; }
 }
@@ -426,7 +426,7 @@ body.menu-open { overflow: hidden; }
 
 /* Grands téléphones (ex. 390x844, 412x915) : il reste de la place, photo plus grande */
 @media (max-width: 559px) and (min-height: 780px) {
-    .photo-stage { --photo: 176px; --r-out: calc(var(--photo) / 2 + 30px); --orb: 34px; }
+    .photo-stage { --photo: clamp(220px, 60vw, 240px); --r-out: calc(var(--photo) / 2 + 22px); --orb: 34px; }
 }
 
 /* Chiffres clés : une simple rangée de chiffres, sans cartes */
