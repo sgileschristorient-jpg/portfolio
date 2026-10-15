@@ -387,7 +387,7 @@ body.menu-open { overflow: hidden; }
 
 /* Téléphone : tout l'essentiel de l'accueil tient dans le premier écran */
 @media (max-width: 559px) {
-    .hero { padding: 4px 0 32px; }
+    .hero { padding: 12px 0 32px; }
     .hero-grid { gap: 6px; }
     .photo-stage { --photo: clamp(210px, 60vw, 240px); --r-out: calc(var(--photo) / 2 + 20px); --orb: 32px; }
     .hero-status { font-size: 0.8rem; padding: 6px 12px; margin-bottom: 10px; }
@@ -403,7 +403,7 @@ body.menu-open { overflow: hidden; }
 
 /* Petits écrans en hauteur (ex. 360x640) : on resserre encore */
 @media (max-width: 559px) and (max-height: 720px) {
-    .hero { padding-top: 0; }
+    .hero { padding-top: 10px; }
     .photo-stage { --photo: clamp(206px, 58vw, 226px); --r-out: calc(var(--photo) / 2 + 16px); --orb: 28px; }
     .hero-status { font-size: 0.74rem; padding: 5px 10px; margin-bottom: 6px; }
     .hero h1 { font-size: 1.7rem; line-height: 1.02; }
