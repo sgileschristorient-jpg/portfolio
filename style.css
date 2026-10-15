@@ -301,7 +301,7 @@ body.menu-open { overflow: hidden; }
 /* Photo ronde + technos en orbite (seul effet animé « signature ») */
 .hero-photo { display: flex; justify-content: center; }
 .photo-stage {
-    --photo: clamp(138px, 40vw, 160px);
+    --photo: clamp(176px, 52vw, 210px);
     --r-out: calc(var(--photo) / 2 + 42px);
     --r-in: calc(var(--photo) / 2 + 16px);
     --orb: 38px;
@@ -393,7 +393,7 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 560px) {
     .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; }
     .hero-yt { grid-column: auto; }
-    .photo-stage { --photo: 170px; --r-out: 140px; --r-in: 112px; --orb: 40px; }
+    .photo-stage { --photo: 210px; --r-out: 160px; --r-in: 130px; --orb: 40px; }
     .orbit-inner { display: block; }
     .facts { grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--border); }
     .facts li { flex-direction: column; gap: 6px; padding: 22px 22px 22px 0; border-bottom: 0; }
@@ -404,20 +404,21 @@ body.menu-open { overflow: hidden; }
 @media (min-width: 900px) {
     .hero { padding: 72px 0 80px; }
     .hero::before { left: 72%; top: -200px; }
-    .hero-grid { grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
+    .hero-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .hero-text { text-align: left; }
     .hero-cta, .socials { justify-content: flex-start; }
     .hero-lead { margin-left: 0; }
     .hero-role { font-size: 1.25rem; }
     .hero-role span { display: inline; margin: 0; font-size: 1em; }
     .hero-role span::before { content: "· "; color: var(--faint); }
-    .hero-photo { order: 2; }
-    .photo-stage { --photo: 220px; --r-out: 168px; --r-in: 138px; --orb: 42px; }
+    .hero-photo { order: 2; align-self: start; margin-top: 8px; }
+    .hero h1 { font-size: clamp(2.6rem, 4.3vw, 3.6rem); }
+    .photo-stage { --photo: 250px; --r-out: 178px; --r-in: 148px; --orb: 42px; }
     .photo-frame { border-width: 3px; box-shadow: 0 0 0 10px rgba(var(--brand-rgb), .08), 0 30px 80px -20px rgba(var(--brand-rgb), .5); }
     .photo-frame img { border-width: 6px; }
     .facts { margin-top: 64px; }
 }
-@media (min-width: 1100px) { .photo-stage { --photo: 290px; --r-out: 222px; --r-in: 181px; --orb: 46px; } }
+@media (min-width: 1100px) { .hero-grid { grid-template-columns: 1.1fr 1fr; } .photo-stage { --photo: 330px; --r-out: 228px; --r-in: 192px; --orb: 46px; } }
 
 /* ==========================================================
    SECTIONS
