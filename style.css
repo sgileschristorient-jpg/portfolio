@@ -364,6 +364,26 @@ body.menu-open { overflow: hidden; }
 .socials a:hover { color: var(--accent); border-color: var(--accent); }
 .socials .ic { width: 19px; height: 19px; }
 
+
+/* Accroche et preuves dans l'accueil */
+.hero-status {
+    padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(52, 211, 153, .3); background: rgba(52, 211, 153, .08);
+    color: #a7f3d0; font-weight: 500;
+}
+.hero-hook { margin: 18px auto 0; max-width: 30ch; font-family: var(--font-head); font-size: clamp(1.2rem, 4.4vw, 1.55rem); font-weight: 600; line-height: 1.25; color: var(--text); }
+.hero-lead { margin-top: 12px; }
+.proofs { display: grid; gap: 8px; margin: 20px auto 0; max-width: 520px; text-align: left; }
+.proofs li {
+    display: flex; align-items: flex-start; gap: 10px; padding: 9px 12px; border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; color: var(--muted);
+}
+.proofs .ic { width: 18px; height: 18px; margin-top: 2px; color: var(--success); stroke-width: 2.6; }
+.proofs strong { color: var(--text); }
+@media (min-width: 900px) {
+    .hero-hook, .proofs { margin-left: 0; }
+    .proofs { grid-template-columns: 1fr 1fr; max-width: 640px; }
+}
+
 /* Chiffres clés : une simple rangée de chiffres, sans cartes */
 .facts { display: grid; margin-top: 36px; border-top: 1px solid var(--border); }
 .facts li { display: flex; align-items: baseline; gap: 14px; padding: 14px 2px; border-bottom: 1px solid var(--border); }
@@ -388,6 +408,7 @@ body.menu-open { overflow: hidden; }
     .hero-text { text-align: left; }
     .hero-cta, .socials { justify-content: flex-start; }
     .hero-lead { margin-left: 0; }
+    .hero-role { font-size: 1.25rem; }
     .hero-role span { display: inline; margin: 0; font-size: 1em; }
     .hero-role span::before { content: "· "; color: var(--faint); }
     .hero-photo { order: 2; }
