@@ -387,7 +387,7 @@ body.menu-open { overflow: hidden; }
 
 /* Téléphone : tout l'essentiel de l'accueil tient dans le premier écran */
 @media (max-width: 559px) {
-    .hero { padding: 14px 0 32px; }
+    .hero { padding: 4px 0 32px; }
     .hero-grid { gap: 6px; }
     .photo-stage { --photo: clamp(128px, 38vw, 150px); --r-out: calc(var(--photo) / 2 + 26px); --orb: 32px; }
     .hero-status { font-size: 0.8rem; padding: 6px 12px; margin-bottom: 10px; }
@@ -403,7 +403,7 @@ body.menu-open { overflow: hidden; }
 
 /* Petits écrans en hauteur (ex. 360x640) : on resserre encore */
 @media (max-width: 559px) and (max-height: 720px) {
-    .hero { padding-top: 6px; }
+    .hero { padding-top: 0; }
     .photo-stage { --photo: 108px; --r-out: calc(var(--photo) / 2 + 20px); --orb: 28px; }
     .hero-status { font-size: 0.74rem; padding: 5px 10px; margin-bottom: 6px; }
     .hero h1 { font-size: 1.7rem; line-height: 1.02; }
@@ -447,7 +447,7 @@ body.menu-open { overflow: hidden; }
 }
 /* Ordinateur : texte à gauche, photo et orbite à droite */
 @media (min-width: 900px) {
-    .hero { padding: 72px 0 80px; }
+    .hero { padding: 36px 0 72px; }
     .hero::before { left: 72%; top: -200px; }
     .hero-grid { grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
     .hero-text { text-align: left; }
@@ -456,7 +456,7 @@ body.menu-open { overflow: hidden; }
     .hero-role { font-size: 1.25rem; }
     .hero-role > span:not(.sr-only):not(.tw-role) { display: inline; margin: 0; font-size: 1em; }
     .hero-role > span:not(.sr-only):not(.tw-role)::before { content: "· "; color: var(--faint); }
-    .hero-photo { order: 2; }
+    .hero-photo { order: 2; align-self: start; }
     .hero h1 { font-size: clamp(2.6rem, 4.3vw, 3.6rem); }
     .photo-stage { --photo: 250px; --r-out: 178px; --r-in: 148px; --orb: 42px; }
     .photo-frame { border-width: 3px; box-shadow: 0 0 0 10px rgba(var(--brand-rgb), .08), 0 30px 80px -20px rgba(var(--brand-rgb), .5); }
