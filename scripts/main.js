@@ -20,39 +20,49 @@
         }
     }
 
-    /* --- Menu mobile --- */
+    /* --- Menu mobile (tiroir) --- */
     var toggle = document.getElementById('nav-toggle');
-    var nav = document.getElementById('main-nav');
+    var drawer = document.getElementById('drawer');
     function setMenu(open) {
         document.body.classList.toggle('menu-open', open);
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
         toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-        toggle.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
     }
     toggle.addEventListener('click', function () {
         setMenu(!document.body.classList.contains('menu-open'));
     });
-    nav.addEventListener('click', function (e) {
-        if (e.target.closest('a')) setMenu(false);
+    drawer.addEventListener('click', function (e) {
+        // Fermeture au clic sur un lien ou sur le fond assombri
+        if (e.target.closest('a') || e.target.hasAttribute('data-close')) setMenu(false);
     });
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') setMenu(false);
     });
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) setMenu(false);
+    });
 
-    /* --- En-tête : bordure au défilement + lien actif --- */
-    var header = document.querySelector('.site-header');
+    /* --- Barre de lecture --- */
+    var bar = document.getElementById('scroll-progress');
+    var ticking = false;
     window.addEventListener('scroll', function () {
-        header.classList.toggle('scrolled', window.scrollY > 8);
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+            ticking = false;
+        });
     }, { passive: true });
 
-    var links = {};
-    nav.querySelectorAll('a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    /* --- Lien actif (barre d'ordinateur + tiroir) --- */
+    var navLinks = document.querySelectorAll('#main-nav a[href^="#"], #drawer .drawer-link');
 
     if ('IntersectionObserver' in window) {
         var spy = new IntersectionObserver(function (entries) {
             entries.forEach(function (en) {
                 if (!en.isIntersecting) return;
-                Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === en.target.id); });
+                navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
             });
         }, { rootMargin: '-45% 0px -50% 0px' });
         document.querySelectorAll('main section[id]').forEach(function (s) { spy.observe(s); });

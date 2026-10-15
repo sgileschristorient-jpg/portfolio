@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack</title>
     <meta name="description" content="Portfolio de Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack (Angular, Spring Boot), étudiant en Licence 3 Réseaux Informatiques et Télécommunications à l'IST Campus Gounghin. 3 applications en production.">
-    <meta name="theme-color" content="#0b0a14">
+    <meta name="theme-color" content="#0b1220">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Ouindpouiéré Giles Christ-Orient SALOU — Développeur Web Full Stack">
@@ -64,8 +64,6 @@
     </svg>
     <a class="skip-link" href="#main">Aller au contenu</a>
     <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-    <div class="bg-fx" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
-    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
     <!-- ======= EN-TÊTE ======= -->
     <header class="site-header">
@@ -85,21 +83,44 @@
             <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt btn-sm header-yt" aria-label="S'abonner à ma chaîne YouTube">
                 <svg class="ic fill"><use href="#b-youtube"/></svg><span>S'abonner</span>
             </a>
-            <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-nav">
-                <svg class="ic"><use href="#i-menu"/></svg>
+            <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </header>
+
+    <!-- ======= MENU MOBILE ======= -->
+    <div class="drawer" id="drawer">
+        <div class="drawer-scrim" data-close></div>
+        <nav class="drawer-panel" aria-label="Menu">
+            <p class="drawer-title">Menu</p>
+            <a class="drawer-link" href="#accueil"><svg class="ic"><use href="#i-spark"/></svg> Accueil</a>
+            <a class="drawer-link" href="#projets"><svg class="ic"><use href="#i-layers"/></svg> Projets</a>
+            <a class="drawer-link" href="#parcours"><svg class="ic"><use href="#i-cap"/></svg> Parcours</a>
+            <a class="drawer-link" href="#competences"><svg class="ic"><use href="#i-code"/></svg> Compétences</a>
+            <a class="drawer-link" href="#certifications"><svg class="ic"><use href="#i-award"/></svg> Certifications</a>
+            <a class="drawer-link" href="#cyber"><svg class="ic"><use href="#i-shield"/></svg> Cybersécurité</a>
+            <a class="drawer-link" href="#contact"><svg class="ic"><use href="#i-mail"/></svg> Contact</a>
+            <div class="drawer-foot">
+                <a href="https://www.youtube.com/@Orient-e7m?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-yt"><svg class="ic fill"><use href="#b-youtube"/></svg> S'abonner sur YouTube</a>
+                <ul class="socials" aria-label="Réseaux">
+                    <li><a href="https://github.com/sgileschristorient-jpg" target="_blank" rel="noopener" aria-label="GitHub"><svg class="ic fill"><use href="#b-github"/></svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/giles-christ-orient-salou-454179334/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic fill"><use href="#b-linkedin"/></svg></a></li>
+                    <li><a href="https://wa.me/57222160" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic fill"><use href="#b-whatsapp"/></svg></a></li>
+                    <li><a href="mailto:sgileschristorient@gmail.com" aria-label="E-mail"><svg class="ic"><use href="#i-mail"/></svg></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <main id="main">
 
         <!-- ======= ACCUEIL ======= -->
         <section id="accueil" class="hero">
-            <canvas id="hero-canvas" aria-hidden="true"></canvas>
             <div class="wrap hero-grid">
                 <div class="hero-photo">
                     <button class="photo-frame" type="button" data-zoom="images/logo.JPG" data-title="Ouindpouiéré Giles Christ-Orient SALOU" aria-label="Agrandir la photo">
-                        <img src="images/thumbs/logo.jpg" alt="Portrait de Ouindpouiéré Giles Christ-Orient SALOU" width="640" height="695" fetchpriority="high">
+                        <img src="images/thumbs/portrait.jpg" alt="Portrait de Ouindpouiéré Giles Christ-Orient SALOU" width="800" height="800" fetchpriority="high">
                     </button>
                     <div class="hero-chips">
                         <p class="chip chip-status"><span class="dot"></span>Ouvert aux opportunités</p>
@@ -109,10 +130,10 @@
                 </div>
 
                 <div class="hero-text">
-                    <h1><span class="name-line"><span class="in-line">Ouindpouiéré Giles</span></span> <span class="name-line"><span class="in-line">Christ-Orient <span class="grad">SALOU</span></span></span></h1>
-                    <p class="hero-role"><span id="typed" data-words="Développeur Web Full Stack|Angular &amp; Spring Boot|Applications web et mobiles|Réseaux &amp; cybersécurité">Développeur Web Full Stack</span></p>
+                    <h1><span class="name-line">Ouindpouiéré Giles</span> <span class="name-line">Christ-Orient <span class="grad">SALOU</span></span></h1>
+                    <p class="hero-role">Développeur Web Full Stack <span>Angular &amp; Spring Boot</span></p>
                     <ul class="hero-stack mono" aria-label="Technologies principales">
-                        <li>Angular</li><li>Spring Boot</li><li>Java</li><li>TypeScript</li><li>Python</li>
+                        <li>Java</li><li>TypeScript</li><li>Python</li><li>Réseaux</li><li>Cybersécurité</li>
                     </ul>
                     <p class="hero-lead">
                         Étudiant en <strong>Licence 3 Réseaux Informatiques et Télécommunications</strong> à l'IST Campus Gounghin
@@ -751,7 +772,6 @@
     </dialog>
 
     <script src="scripts/main.js" defer></script>
-    <script src="scripts/effects.js" defer></script>
     <script src="scripts/scanner.js" defer></script>
 </body>
 </html>
